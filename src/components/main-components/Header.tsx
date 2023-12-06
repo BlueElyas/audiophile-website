@@ -3,6 +3,7 @@ import { HamburgerIcon } from "../svgs/HamburgerIcon";
 import { Logo } from "../svgs/Logo";
 import { useState } from 'react'
 import { NavBar } from "./NavBar";
+import { NavLink } from "react-router-dom";
 
 export function Header()  {
     const [showNav, setShowNav] = useState(false)
@@ -17,7 +18,9 @@ export function Header()  {
                 <div onClick={handleClick}>
                     <CartIcon/>
                 </div> 
-                <Logo/>
+                <NavLink to="/">
+                    <Logo/>
+                </NavLink>
                 <HamburgerIcon/>
             </div>
             <div className="">
