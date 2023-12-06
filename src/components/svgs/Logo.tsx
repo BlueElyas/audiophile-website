@@ -1,7 +1,7 @@
 export function Logo() {
     return(
         <svg xmlns="http://www.w3.org/2000/svg" width="143" height="25" viewBox="0 0 143 25" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd" 
+                <path fillRule="evenodd" clipRule="evenodd" 
                 d="M57.9755 4.10884V0H53.2131V4.10884H57.9755ZM41.8721 20.3997C43.5076 20.3997 44.9648 
                 19.8429 46.1074 18.8803L46.5635 19.9241H50.1425V0.792094L45.3611 0.792093V6.38308C44.3548 5.75732 
                 43.1686 5.40721 41.8721 5.40721C37.5634 5.40721 34.4943 8.52769 34.4943 12.896C34.4943 17.2644 37.5634 
