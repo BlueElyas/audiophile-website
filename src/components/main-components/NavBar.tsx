@@ -3,7 +3,7 @@ export function NavBar() {
     const imageObj :  {name: string, image: any}[] = [
         {
             name: "headphones",
-            image:  "../data/assets/shared/desktop/image-category-thumbnail-headphones.png"
+            image:  "src/data/assets/shared/desktop/image-category-thumbnail-headphones.png"
         },
         {
             name: "speakers",
@@ -11,7 +11,7 @@ export function NavBar() {
         },
         {
             name: "earphones",
-            image: "../data/assets/shared/desktop/image-category-thumbnail-earphones.png"
+            image: "src/data/assets/shared/desktop/image-category-thumbnail-earphones.png"
         }
     ]
 
@@ -21,7 +21,7 @@ export function NavBar() {
                 to={`/${data.name}`} 
                 className="bg-gray-200 bg-opacity-60 rounded-lg relative h-40 flex flex-col justify-end items-center">
                 <img 
-                    src={`data.image`}
+                    src={data.image}
                     alt={`pictore of a ${data.name}`} 
                     className="w-32 h-28 absolute top-0 -translate-y-1/3"
                     />
@@ -33,7 +33,7 @@ export function NavBar() {
 
     return(
         <>
-            <nav className="flex gap-5 uppercase flex-col m-6 mt-16">
+            <nav className="flex gap-16 uppercase flex-col m-6 mt-16 ">
                 {mappedImageObj}
             </nav>
         </>
