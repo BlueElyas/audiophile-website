@@ -4,7 +4,7 @@ import { Logo } from "../svgs/Logo";
 export function Footer() {
     return(
         <>
-            <div className="bg-black text-white flex flex-col justify-center items-center text-center gap-10 px-6 absolute bottom-0">
+            <div className="bg-black text-white flex flex-col justify-center items-center text-center gap-10 px-6">
                 <div className="border-[#D87D4A] border-2 w-28"></div>
                 <Logo/>
                 <div className="flex flex-col gap-5">
