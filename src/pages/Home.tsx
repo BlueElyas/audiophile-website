@@ -39,6 +39,28 @@ export function Home() {
                 <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
                 <SeeProductButton style="bg-black mb-8"/>
             </div>
+
+            <div className="relative px-6 mt-4 mb-4 ">
+                <img 
+                    src="src\data\assets\home\mobile\image-speaker-zx7.jpg" 
+                    alt=""
+                    className="rounded-lg" />
+                <div className="absolute top-24 ml-7">
+                    <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
+                    <SeeProductButton style="border-black border-[1px] font-bold"/>
+                </div>
+            </div>
+
+            <div className="px-6">
+                <img 
+                    src="src\data\assets\home\mobile\image-earphones-yx1.jpg" 
+                    alt="" 
+                    className="rounded-lg"/>
+                <div className="bg-gray-100 mt-4 py-8 px-6 rounded-lg">
+                    <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
+                    <SeeProductButton style="border-black border-[1px] font-bold"/>
+                </div>
+            </div>
         </>
     )
 }
