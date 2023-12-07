@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-const imageObj :  {name: string, image: any}[] = [
+const ProductNavLinks :  {name: string, image: any}[] = [
     {
         name: "headphones",
         image:  "src/data/assets/shared/desktop/image-category-thumbnail-headphones.png"
@@ -15,7 +15,7 @@ const imageObj :  {name: string, image: any}[] = [
     }
 ]
 
-export const mappedImageObj : JSX.Element[] = imageObj.map(data => {
+export const mappedProductNavLinks : JSX.Element[] = ProductNavLinks.map(data => {
     return (
         <NavLink 
             to={`/${data.name}`} 
