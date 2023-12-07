@@ -62,7 +62,7 @@ export function Home() {
                 </div>
             </div>
 
-            <div className="px-6 text-center flex flex-col gap-8">
+            <div className="px-6 text-center flex flex-col gap-8 mt-32">
                 <img 
                     src="src\data\assets\shared\mobile\image-best-gear.jpg" 
                     alt="picture of a man with headphones looking to the left"
