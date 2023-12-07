@@ -1,5 +1,6 @@
 import { mappedProductNavLinks } from "../components/reusable-components/ProductNavLinks";
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
+import { CirclePatternIcon } from "../components/svgs/CirclePatternIcon";
 
 export function Home() {
     return(
@@ -25,6 +26,7 @@ export function Home() {
             <div className="bg-[#D87D4A] text-white">
                 <div className="div">
                     <img src="src\data\assets\home\mobile\image-speaker-zx9.png" alt="" />
+                    <CirclePatternIcon/>
                 </div>
                 <h1>ZX9 SPEAKER</h1>
                 <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
