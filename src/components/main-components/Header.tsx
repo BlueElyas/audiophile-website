@@ -14,7 +14,7 @@ export function Header()  {
 
     return (
         <>
-            <div className="bg-black text-white flex justify-between px-4 py-7 items-center border-b-2 border-white">
+            <div className="bg-black text-white flex justify-between px-4 py-7 items-center">
                 <div onClick={handleClick} className="cursor-pointer">
                     <CartIcon/>
                 </div> 
