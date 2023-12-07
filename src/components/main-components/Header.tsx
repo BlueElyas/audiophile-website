@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 export function Header()  {
     const [showNav, setShowNav] = useState(false)
 
-    function handleClick() {
+    function handleClick() : void {
         setShowNav(!showNav)
     }
 
