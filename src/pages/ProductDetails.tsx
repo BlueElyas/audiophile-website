@@ -4,7 +4,7 @@ import { SeeProductButton } from "../components/reusable-components/SeeProductBu
 import data from '../data/data.json'
 
 export function ProductDetails() {
-    const[cartQuantity, setCartQuantity] = useState(0)
+    const[itemQuantity, setitemQuantity] = useState(0)
     const[cartPrice, setCartPrice] = useState(0)
     const  { slug } = useParams()
     const navigate = useNavigate()
@@ -34,8 +34,13 @@ export function ProductDetails() {
                     <h1 className="font-bold uppercase text-4xl">{selectedItem.name}</h1>
                     <p className="opacity-50">{selectedItem.description}</p>
                     <h4 className="tracking-wider font-bold">$ {selectedItem.price.toLocaleString()}</h4>
-                    <div>
-                        add item, add to cart
+                    <div className="flex items-center justify-around">
+                        <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
+                            <button onClick={() => setitemQuantity(itemQuantity - 1)}>-</button>
+                            <p>{itemQuantity >= 0 ? itemQuantity : 0}</p>
+                            <button onClick={() => setitemQuantity(itemQuantity + 1)}>+</button>
+                        </div>
+                        <button className="py-4 px-6 bg-[#D87D4A] text-white">ADD TO CART</button>
                     </div>
                 </div>
 
