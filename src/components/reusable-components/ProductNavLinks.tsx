@@ -3,15 +3,15 @@ import { NavLink } from "react-router-dom"
 const ProductNavLinks :  {name: string, image: any}[] = [
     {
         name: "headphones",
-        image:  "src/data/assets/shared/desktop/image-category-thumbnail-headphones.png"
+        image:  "/assets/shared/desktop/image-category-thumbnail-headphones.png"
     },
     {
         name: "speakers",
-        image: "src/data/assets/shared/desktop/image-category-thumbnail-speakers.png"
+        image: "/assets/shared/desktop/image-category-thumbnail-speakers.png"
     },
     {
         name: "earphones",
-        image: "src/data/assets/shared/desktop/image-category-thumbnail-earphones.png"
+        image: "/assets/shared/desktop/image-category-thumbnail-earphones.png"
     }
 ]
 

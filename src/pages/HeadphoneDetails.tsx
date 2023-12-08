@@ -1,23 +1,17 @@
-import { useParams } from "react-router-dom"
-import data from '../data/data.json'
+import { useLocation, useParams } from "react-router-dom"
 
 export function HeadphoneDetails() {
-    const { id } = useParams()
-    const selectedItem = data.find(item => {
-        if(!id){
-            return
-        }
-        return item.id === parseInt(id, 10)
-    });
+    const location = useLocation()
+    const selectedItem = location.state
 
     if (!selectedItem) {
         return <div>Item not found</div>;
     }
-    console.log(`public${selectedItem.categoryImage.mobile.slice(1)}`)
+    console.log(location.state)
     return (
         <div key={selectedItem.name}>
             <div>
-                <img src={`public${selectedItem.categoryImage.mobile.slice(1)}`} alt={selectedItem.name} />
+                <img src={selectedItem.categoryImage.mobile.slice(1)} alt={selectedItem.name} />
                 <p>new product</p>
                 <h1>{selectedItem.name}</h1>
                 <p>{selectedItem.description}</p>
