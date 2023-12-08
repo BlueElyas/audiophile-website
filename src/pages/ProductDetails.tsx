@@ -5,7 +5,6 @@ import data from '../data/data.json'
 
 export function ProductDetails() {
     const[itemQuantity, setitemQuantity] = useState(0)
-    const[cartPrice, setCartPrice] = useState(0)
     const  { slug } = useParams()
     const navigate = useNavigate()
 
@@ -19,7 +18,7 @@ export function ProductDetails() {
     }
     return (
         <div className="p-6">
-            <button onClick={() => navigate(`/${selectedItem.category}`)}>
+            <button onClick={() => navigate(`/${selectedItem.category}`)} className="mb-8 opacity-60 capitalize">
                 Go back
             </button>
 
