@@ -1,10 +1,13 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
-import { Link, useParams } from "react-router-dom"
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import data from '../data/data.json'
 
 export function ProductDetails() {
+    const[cartQuantity, setCartQuantity] = useState(0)
+    const[cartPrice, setCartPrice] = useState(0)
     const  { slug } = useParams()
+    const navigate = useNavigate()
 
     const fetchProductDetails = (productSlug : any) => {
         return data.find(product => product.slug === productSlug)
@@ -16,6 +19,9 @@ export function ProductDetails() {
     }
     return (
         <div className="p-6">
+            <button onClick={() => navigate(`/${selectedItem.category}`)}>
+                Go back
+            </button>
 
             <div key={selectedItem.name} className="grid gap-8">
                 <div className="flex flex-col gap-6">
