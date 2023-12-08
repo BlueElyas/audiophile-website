@@ -6,7 +6,7 @@ export function ProductSelection(data: any[]) {
         return(
             <div className="flex flex-col justify-center items-center text-center mx-6 gap-8 my-16" key={data.id}>
                 <img 
-                    src={`src/data${data.categoryImage.mobile.slice(1)}`} 
+                    src={`public${data.categoryImage.mobile.slice(1)}`} 
                     alt={`picture of ${data.name}`} 
                     className='rounded-lg'
                     />
