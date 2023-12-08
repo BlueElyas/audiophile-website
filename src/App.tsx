@@ -4,6 +4,7 @@ import { Headphones } from "./pages/Headphones"
 import { Speakers } from "./pages/Speakers"
 import { Earphones } from "./pages/Earphones"
 import { Home } from "./pages/Home"
+import { HeadphoneDetails } from "./pages/HeadphoneDetails"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path="/headphones" element={<Headphones/>}/>
+          <Route path="/headphones/:id" element={<HeadphoneDetails/>}/>
           <Route path="/speakers" element={<Speakers/>}/>
           <Route path="/earphones" element={<Earphones/>}/>
         </Route>
