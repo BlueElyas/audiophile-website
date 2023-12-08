@@ -4,7 +4,7 @@ import { Headphones } from "./pages/Headphones"
 import { Speakers } from "./pages/Speakers"
 import { Earphones } from "./pages/Earphones"
 import { Home } from "./pages/Home"
-import { HeadphoneDetails } from "./pages/HeadphoneDetails"
+import { ProductDetails } from "./pages/ProductDetails"
 
 function App() {
   return (
@@ -13,9 +13,12 @@ function App() {
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
           <Route path="/headphones" element={<Headphones/>}/>
-          <Route path="/headphones/:id" element={<HeadphoneDetails/>}/>
+          <Route path="/headphones/:slug" element={<ProductDetails/>}/>
           <Route path="/speakers" element={<Speakers/>}/>
+          <Route path="/speakers/:slug" element={<ProductDetails/>}/>
           <Route path="/earphones" element={<Earphones/>}/>
+          <Route path="/earphones/:slug" element={<ProductDetails/>}/>
+
         </Route>
       </Routes>
     </>
