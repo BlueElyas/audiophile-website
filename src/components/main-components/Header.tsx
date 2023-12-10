@@ -16,16 +16,18 @@ export function Header()  {
         <>
             <div className="bg-black text-white flex justify-between px-4 py-7 items-center z-40 relative">
                 <div onClick={handleClick} className="cursor-pointer">
-                <HamburgerIcon/>
+                    <HamburgerIcon/>
                 </div> 
+
                 <NavLink to="/">
                     <Logo/>
                 </NavLink>
+
                 <NavLink to="/cart">
-                <CartIcon/>
-                    
+                    <CartIcon/>   
                 </NavLink>
             </div>
+
             <div className="">
                 {showNav && <NavBar/>}
             </div>  
