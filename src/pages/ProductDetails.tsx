@@ -1,11 +1,17 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
 import { AboutSection } from "../components/reusable-components/AboutSection";
+import { useShoppingCart } from "../context/CartContext";
 
 export function ProductDetails() {
-    const [itemQuantity, setitemQuantity] = useState(0)
+    const { 
+        getItemQuantity,
+        increaseCartQuantity,
+        decreaseCartQuantity 
+    } = useShoppingCart()
+
     const  { slug } = useParams()
     const navigate = useNavigate()
 
@@ -15,6 +21,8 @@ export function ProductDetails() {
     if (!selectedItem) {
         return <div>Item not found</div>
     }
+    const quantity = getItemQuantity(slug!)
+
     return (
         <div className="p-6">
             <button onClick={() => navigate(`/${selectedItem.category}`)} className="mb-8 opacity-60 capitalize">
@@ -33,11 +41,13 @@ export function ProductDetails() {
                     <p className="opacity-50">{selectedItem.description}</p>
                     <h4 className="tracking-wider font-bold">$ {selectedItem.price.toLocaleString()}</h4>
                     <div className="flex items-center justify-around">
+
                         <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
-                            <button onClick={() => setitemQuantity(itemQuantity - 1)}>-</button>
-                            <p>{itemQuantity >= 0 ? itemQuantity : 0}</p> 
-                            <button onClick={() => setitemQuantity(itemQuantity + 1)}>+</button>
+                            <button onClick={() => decreaseCartQuantity(slug!) }>-</button>
+                            <p>{quantity >= 0 ? quantity : 0}</p> 
+                            <button onClick={() => increaseCartQuantity(slug!) }>+</button>
                         </div>
+
                         <button className="py-4 px-6 bg-[#D87D4A] text-white">ADD TO CART</button>
                     </div>
                 </div>
@@ -86,7 +96,7 @@ export function ProductDetails() {
             </div>
 
             <AboutSection />
-            
+
         </div>
     )
 }

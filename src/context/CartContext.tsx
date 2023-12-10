@@ -10,7 +10,7 @@ type CartItem = {
 }
 
 type ShoppingCartContext = {
-    getItemQuantity: (slug: string) => number
+    getItemQuantity: (slug: string) => number 
     increaseCartQuantity: (slug: string) => void
     decreaseCartQuantity: (slug: string) => void
     removeFromCart: (slug: string) => void
@@ -74,17 +74,3 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         </CartContext.Provider>
     )
 }
-
-// const [cart, setCart] = useState([])
-
-    // useEffect(() => {
-    //     const savedCart = localStorage.getItem('cart')
-    //     if(savedCart) {
-    //         setCart(JSON.parse(savedCart))
-    //     }
-    // },[])
-
-    // useEffect(() => {
-    //     localStorage.setItem('cart', JSON.stringify(cart))
-    // },[cart])
-
