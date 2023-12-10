@@ -5,21 +5,24 @@ import { Speakers } from "./pages/Speakers"
 import { Earphones } from "./pages/Earphones"
 import { Home } from "./pages/Home"
 import { ProductDetails } from "./pages/ProductDetails"
+import { ShoppingCartProvider } from "./context/CartContext"
 
 function App() {
   return (
-    <>    
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home/>}/>
-          <Route path="/headphones" element={<Headphones/>}/>
-          <Route path="/headphones/:slug" element={<ProductDetails/>}/>
-          <Route path="/speakers" element={<Speakers/>}/>
-          <Route path="/speakers/:slug" element={<ProductDetails/>}/>
-          <Route path="/earphones" element={<Earphones/>}/>
-          <Route path="/earphones/:slug" element={<ProductDetails/>}/>
-        </Route>
-      </Routes>
+    <>
+    <ShoppingCartProvider>   
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="/headphones" element={<Headphones/>}/>
+            <Route path="/headphones/:slug" element={<ProductDetails/>}/>
+            <Route path="/speakers" element={<Speakers/>}/>
+            <Route path="/speakers/:slug" element={<ProductDetails/>}/>
+            <Route path="/earphones" element={<Earphones/>}/>
+            <Route path="/earphones/:slug" element={<ProductDetails/>}/>
+          </Route>
+        </Routes>
+      </ShoppingCartProvider> 
     </>
 
   )
