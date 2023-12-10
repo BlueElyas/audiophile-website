@@ -5,7 +5,11 @@ import { useState } from 'react'
 import { NavBar } from "./NavBar";
 import { NavLink } from "react-router-dom";
 
-export function Header()  {
+interface CartModalProps {
+    handleModalDisplay: () => void
+}
+
+export function Header( { handleModalDisplay } : CartModalProps )  {
     const [showNav, setShowNav] = useState(false)
 
     function handleClick() : void {
@@ -23,9 +27,9 @@ export function Header()  {
                     <Logo/>
                 </NavLink>
 
-                <NavLink to="/cart">
+                <div onClick={handleModalDisplay} className="m-0 p-0">
                     <CartIcon/>   
-                </NavLink>
+                </div>
             </div>
 
             <div className="">

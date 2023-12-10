@@ -6,6 +6,7 @@ import { AboutSection } from "../components/reusable-components/AboutSection";
 import { useShoppingCart } from "../context/CartContext";
 
 export function ProductDetails() {
+    // This gets the functions from the cart context
     const { 
         getItemQuantity,
         increaseCartQuantity,

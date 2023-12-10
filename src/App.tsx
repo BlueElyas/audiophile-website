@@ -6,7 +6,6 @@ import { Earphones } from "./pages/Earphones"
 import { Home } from "./pages/Home"
 import { ProductDetails } from "./pages/ProductDetails"
 import { ShoppingCartProvider } from "./context/CartContext"
-import { CartModal } from "./pages/CartModal"
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
             <Route path="/speakers/:slug" element={<ProductDetails/>}/>
             <Route path="/earphones" element={<Earphones/>}/>
             <Route path="/earphones/:slug" element={<ProductDetails/>}/>
-            <Route path="/cart" element={<CartModal/>} />
           </Route>
         </Routes>
       </ShoppingCartProvider> 
