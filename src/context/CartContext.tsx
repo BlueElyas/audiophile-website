@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react"
+import { ReactNode, createContext, useContext, useEffect, useState } from "react"
 
 type ShoppingCartProviderProps = {
     children: ReactNode
@@ -24,6 +24,17 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider( { children } : ShoppingCartProviderProps ) {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
+
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem('cart')
+        if(savedCartItems) {
+            setCartItems(JSON.parse(savedCartItems))
+        }
+    },[])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems))
+    },[cartItems])
     
     function getItemQuantity(slug: string) {
         return cartItems.find(item => item.slug === slug)?.quantity || 0
@@ -66,7 +77,6 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
             return currItems.filter(item => item.slug !== slug)
         })
     }
-
 
     return(
         <CartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
