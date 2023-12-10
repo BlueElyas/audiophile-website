@@ -2,13 +2,14 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState }
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
+import { AboutSection } from "../components/reusable-components/AboutSection";
 
 export function ProductDetails() {
-    const[itemQuantity, setitemQuantity] = useState(0)
+    const [itemQuantity, setitemQuantity] = useState(0)
     const  { slug } = useParams()
     const navigate = useNavigate()
 
-    
+    // This gets the specific product and its details from the fetchProducDetails function.
     const selectedItem = fetchProductDetails(slug)
     
     if (!selectedItem) {
@@ -34,7 +35,7 @@ export function ProductDetails() {
                     <div className="flex items-center justify-around">
                         <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
                             <button onClick={() => setitemQuantity(itemQuantity - 1)}>-</button>
-                            <p>{itemQuantity >= 0 ? itemQuantity : 0}</p>
+                            <p>{itemQuantity >= 0 ? itemQuantity : 0}</p> 
                             <button onClick={() => setitemQuantity(itemQuantity + 1)}>+</button>
                         </div>
                         <button className="py-4 px-6 bg-[#D87D4A] text-white">ADD TO CART</button>
@@ -82,8 +83,10 @@ export function ProductDetails() {
                         </div>
                     )
                 })}
-                
             </div>
+
+            <AboutSection />
+            
         </div>
     )
 }

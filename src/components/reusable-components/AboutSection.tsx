@@ -2,7 +2,7 @@ export function AboutSection() {
     return(
         <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28">
             <img 
-                src="public\assets\shared\mobile\image-best-gear.jpg" 
+                src="\assets\shared\mobile\image-best-gear.jpg" 
                 alt="picture of a man with headphones looking to the left"
                 className="rounded-lg" />
             <h1 className="text-4xl uppercase font=bold">Bringing you the 
