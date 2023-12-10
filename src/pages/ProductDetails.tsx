@@ -8,7 +8,7 @@ export function ProductDetails() {
     const  { slug } = useParams()
     const navigate = useNavigate()
 
-    const fetchProductDetails = (productSlug : any) => {
+    const fetchProductDetails = (productSlug : string | undefined) => {
         return data.find(product => product.slug === productSlug)
     }
     const selectedItem = fetchProductDetails(slug)
