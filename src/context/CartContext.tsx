@@ -41,33 +41,38 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
     }
 
     function increaseCartQuantity(slug: string) {
-        setCartItems((currItems : any[]) => {
-            if (currItems.find(item => item.slug === slug) == null) {
-                return [...currItems, { slug, quantity: 1 }]
-            } else {
+        setCartItems((currItems : CartItem[]) => {
+
+            const itemExists = currItems.find(item => item.slug === slug)
+
+            if (itemExists) {
                 return currItems.map(item => {
-                    if (item.slug === slug) {
-                        return { ...item, quantity: item.quantity + 1}
-                    } else {
-                        return 1
-                    }
+                   return item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
                 })
+            } else {
+                return [...currItems, { slug, quantity: 1 }]
             }
         })
     }
 
     function decreaseCartQuantity(slug: string) {
-        setCartItems((currItems : any[]) => {
-            if (currItems.find(item => item.slug === slug)?.quantity === 1) {
-                return currItems.filter( item => item.slug !== slug)
+        setCartItems((currItems : CartItem[]) => {
+
+            const itemExists = currItems.find(item => item.slug === slug)
+
+            if (itemExists) {
+                if(itemExists.quantity === 1) {
+
+                    return currItems.filter( item => item.slug !== slug)
+                } else {
+
+                    return currItems.map(item => {
+                        return item.slug === slug ? { ...item, quantity: item.quantity - 1} : item
+                        }
+                    )
+                }
             } else {
-                return currItems.map(item => {
-                    if (item.slug === slug) {
-                        return { ...item, quantity: item.quantity - 1}
-                    } else {
-                        return 1
-                    }
-                })
+                return currItems
             }
         })
     }
