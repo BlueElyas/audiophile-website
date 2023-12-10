@@ -24,17 +24,22 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider( { children } : ShoppingCartProviderProps ) {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
+    const [initializedLoading, setInitializedLoading] = useState(true)
 
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cart')
         if(savedCartItems) {
             setCartItems(JSON.parse(savedCartItems))
         }
+        setInitializedLoading(false)
     },[])
 
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cartItems))
+        if(!initializedLoading){
+            localStorage.setItem('cart', JSON.stringify(cartItems))
+        }
     },[cartItems])
+
     
     function getItemQuantity(slug: string) {
         return cartItems.find(item => item.slug === slug)?.quantity || 0
