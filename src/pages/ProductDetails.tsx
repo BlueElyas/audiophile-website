@@ -59,8 +59,13 @@ export function ProductDetails() {
 
                 <div>
                     <h5 className="font-bold text-2xl">IN THE BOX</h5>
-                    {selectedItem.includes.map((item: { quantity: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; item: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; }) => {
-                        return <p className="opacity-60"><span className="text-[#D87D4A] mr-6">{item.quantity}x</span>{item.item}</p>
+                    {selectedItem.includes.map((item: { 
+                        quantity: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; item: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined;
+                    }, index: number) => {
+                        return <p className="opacity-60" key={index}>
+                            <span className="text-[#D87D4A] mr-6">{item.quantity}x</span>
+                            {item.item}
+                        </p>
                     })}
                 </div>
             </div>

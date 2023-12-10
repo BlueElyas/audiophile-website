@@ -21,7 +21,9 @@ export function Header()  {
                 <NavLink to="/">
                     <Logo/>
                 </NavLink>
-                <HamburgerIcon/>
+                <NavLink to="/cart">
+                    <HamburgerIcon/>
+                </NavLink>
             </div>
             <div className="">
                 {showNav && <NavBar/>}
