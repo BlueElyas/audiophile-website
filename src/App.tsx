@@ -18,7 +18,6 @@ function App() {
           <Route path="/speakers/:slug" element={<ProductDetails/>}/>
           <Route path="/earphones" element={<Earphones/>}/>
           <Route path="/earphones/:slug" element={<ProductDetails/>}/>
-
         </Route>
       </Routes>
     </>
