@@ -1,16 +1,14 @@
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
-import data from '../data/data.json'
+import { fetchProductDetails } from "../utilities/fetchProductDetails";
 
 export function ProductDetails() {
     const[itemQuantity, setitemQuantity] = useState(0)
     const  { slug } = useParams()
     const navigate = useNavigate()
 
-    const fetchProductDetails = (productSlug : string | undefined) => {
-        return data.find(product => product.slug === productSlug)
-    }
+    
     const selectedItem = fetchProductDetails(slug)
     
     if (!selectedItem) {
@@ -64,7 +62,7 @@ export function ProductDetails() {
 
             <div className="text-center text-3xl font-bold my-24">
                 <h5>YOU MAY ALSO LIKE</h5>
-                {selectedItem.others.map(item => {
+                {selectedItem.others.map((item : any) => {
                     const specificItem = fetchProductDetails(item.slug)
                     if (!specificItem) return
                     const itemCategory = specificItem.category
