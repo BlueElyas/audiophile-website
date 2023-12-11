@@ -55,6 +55,8 @@ export function CartModal(this: any) {
     const totalPrice = eachProductSum.reduce((a,b) => {
         if(a && b) {
             return a + b
+        } else {
+            return a
         }
     })
     
@@ -76,7 +78,7 @@ export function CartModal(this: any) {
 
                 <div className="flex justify-between">
                     <h5>TOTAL</h5>
-                    <h3 className="font-bold">${totalPrice.toLocaleString()}</h3>
+                    <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
                 </div>
                 <button className="bg-[#D87D4A] text-white py-4 rounded-sm">CHECKOUT</button>
             </div>

@@ -20,6 +20,7 @@ type ShoppingCartContext = {
 
 const CartContext = createContext({} as ShoppingCartContext)
 
+// Used for importing values into other components
 export function useShoppingCart() {
     return useContext(CartContext)
 }
@@ -41,12 +42,29 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
 
     useEffect(() => {
         if(!initializedLoading){
-            localStorage.setItem('cart', JSON.stringify(cartItems))
+            const itemsToSave = cartModalItems.filter(item => item.quantity > 0);
+            localStorage.setItem('cart', JSON.stringify(itemsToSave))
         }
     },[cartItems])
 
     function addToCart() {
-        setCartModalItems([...cartItems])
+        setCartModalItems((prevModalItems) => {
+            const updatedModalItems = [...prevModalItems]
+
+            cartItems.forEach(cartItem => {
+                const existingModalItem = updatedModalItems.find(item => item.slug === cartItem.slug)
+                if (existingModalItem) {
+                    existingModalItem.quantity += cartItem.quantity
+                } else {
+                    updatedModalItems.push({ ...cartItem })
+                }
+            })
+
+            return updatedModalItems
+        })
+
+        // Reset the quantity in cartItems to 0
+        setCartItems(cartItems.map(item => ({ ...item, quantity: 0 })));
     }
     
     function getItemQuantity(slug: string) {
