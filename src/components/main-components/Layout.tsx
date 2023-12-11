@@ -14,8 +14,9 @@ export function Layout() {
 
     return(
         <>
-            <div className={`m-0 p-0  ${modalDisplay ? 'opacity-40 ' : ''}`}>
-                <Header handleModalDisplay={handleModalDisplay}/>
+            
+            <Header handleModalDisplay={handleModalDisplay}/>
+            <div className={`m-0 p-0  ${modalDisplay ? 'opacity-40 bg-gray-600' : ''}`}>
                 <Outlet/>
                 <Footer/>
             </div>

@@ -6,7 +6,7 @@ type cartItemProperties ={
     quantity: number
 }
 
-export function CartModal() {
+export function CartModal(this: any) {
     const {
         cartModalItems,
     } = useShoppingCart()
@@ -24,35 +24,51 @@ export function CartModal() {
             }
     })
 
+    const mappedCartItems = cartItemDetails.map(item => {
+        return (
+            <>
+                
+                <div className="flex justify-between font-bold items-center gap-4" key={item.id}>
+                    <img
+                        src={item.categoryImage?.mobile.slice(1)}
+                        alt=""
+                        className="w-20 h-20 rounded-lg" />
+                    <div className="">
+                        <h5>{item.name}</h5>
+                        <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
+                    </div>
+                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4">
+                        <button>-</button>
+                        <p>{item.quantity}</p>
+                        <button>+</button>
+                    </div>
+                </div></>
+        )
+    })
+
+    const eachProductSum = cartItemDetails.map(item => item.quantity * item?.price)
+
+    const totalPrice = eachProductSum.reduce((a,b) => a + b)
+    
     
 
     return(
         <>
+        
             <div 
-                className="fixed z-50 top-48  bg-white p-8 shadow-lg] 
-                rounded-lg w-[92%] flex flex-col gap-8 border-2">
-                <div className="flex justify-between">
+                className="absolute z-50 top-32 left-4 bg-white p-8 shadow-lg] 
+                rounded-lg w-[92%] flex flex-col gap-8 border-2"
+            >
+                <div className="flex justify-between ">
                     <h1 className="font-bold">CART ({cartItemDetails.length})</h1>
                     <button className="underline opacity-50">Remove All</button>
                 </div>
-                <div className="flex justify-between font-bold items-center">
-                    <img 
-                        src="\assets\cart\image-xx59-headphones.jpg" 
-                        alt="" 
-                        className="w-20 h-20 rounded-lg"/>
-                    <div className="">
-                        <h5>NAME</h5>
-                        <p className="font-normal opacity-60">$ PRICE</p>
-                    </div>
-                    <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
-                        <button>-</button>
-                        <p>0</p> 
-                        <button>+</button>
-                    </div>
-                </div>
+
+                {mappedCartItems}
+
                 <div className="flex justify-between">
                     <h5>TOTAL</h5>
-                    <h3 className="font-bold">TOTAL PRICE</h3>
+                    <h3 className="font-bold">${totalPrice.toLocaleString()}</h3>
                 </div>
                 <button className="bg-[#D87D4A] text-white py-4 rounded-sm">CHECKOUT</button>
             </div>

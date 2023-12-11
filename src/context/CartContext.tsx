@@ -94,6 +94,8 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         setCartItems(currItems => {
             return currItems.filter(item => item.slug !== slug)
         })
+        setCartModalItems([])
+        localStorage.clear()
     }
 
     return(
