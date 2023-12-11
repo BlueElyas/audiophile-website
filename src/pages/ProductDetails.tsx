@@ -10,9 +10,11 @@ export function ProductDetails() {
     const { 
         getItemQuantity,
         increaseCartQuantity,
-        decreaseCartQuantity 
+        decreaseCartQuantity,
+        addToCart
     } = useShoppingCart()
 
+    // Used for navigation in recommended products
     const  { slug } = useParams()
     const navigate = useNavigate()
 
@@ -47,7 +49,11 @@ export function ProductDetails() {
                             <p>{quantity >= 0 ? quantity : 0}</p> 
                             <button onClick={() => increaseCartQuantity(slug!) }>+</button>
                         </div>
-                        <button className="py-4 px-6 bg-[#D87D4A] text-white">ADD TO CART</button>
+                        <button 
+                            onClick={addToCart}
+                            className="py-4 px-6 bg-[#D87D4A] text-white">
+                                ADD TO CART
+                        </button>
                     </div>
                 </div>
 

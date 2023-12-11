@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-const ProductNavLinks :  {name: string, image: any}[] = [
+const ProductNavLinks :  {name: string, image: string}[] = [
     {
         name: "headphones",
         image:  "/assets/shared/desktop/image-category-thumbnail-headphones.png"

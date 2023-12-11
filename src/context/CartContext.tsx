@@ -14,6 +14,8 @@ type ShoppingCartContext = {
     increaseCartQuantity: (slug: string) => void
     decreaseCartQuantity: (slug: string) => void
     removeFromCart: (slug: string) => void
+    addToCart: () => void
+    cartModalItems: CartItem[]
 }
 
 const CartContext = createContext({} as ShoppingCartContext)
@@ -25,11 +27,14 @@ export function useShoppingCart() {
 export function ShoppingCartProvider( { children } : ShoppingCartProviderProps ) {
     const [cartItems, setCartItems] = useState<CartItem[]>([])
     const [initializedLoading, setInitializedLoading] = useState(true)
+    const [cartModalItems, setCartModalItems] = useState<typeof cartItems>([])
 
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cart')
         if(savedCartItems) {
-            setCartItems(JSON.parse(savedCartItems))
+            const parsedItems = JSON.parse(savedCartItems)
+            setCartItems(parsedItems)
+            setCartModalItems(parsedItems)
         }
         setInitializedLoading(false)
     },[])
@@ -40,6 +45,9 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         }
     },[cartItems])
 
+    function addToCart() {
+        setCartModalItems([...cartItems])
+    }
     
     function getItemQuantity(slug: string) {
         return cartItems.find(item => item.slug === slug)?.quantity || 0
@@ -89,7 +97,8 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
     }
 
     return(
-        <CartContext.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
+        <CartContext.Provider 
+            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems }}>
             {children}
         </CartContext.Provider>
     )

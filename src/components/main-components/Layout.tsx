@@ -16,10 +16,9 @@ export function Layout() {
         <>
             <Header handleModalDisplay={handleModalDisplay}/>
             <Outlet/>
+            <Footer/>
 
             {modalDisplay && <CartModal />}
-
-            <Footer/>
         </>
     )
 }
