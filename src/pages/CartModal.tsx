@@ -46,9 +46,17 @@ export function CartModal(this: any) {
         )
     })
 
-    const eachProductSum = cartItemDetails.map(item => item.quantity * item?.price)
+    const eachProductSum = cartItemDetails.map(item => {
+        if (item.price) {
+            return item.price * item.quantity
+        }
+    })
 
-    const totalPrice = eachProductSum.reduce((a,b) => a + b)
+    const totalPrice = eachProductSum.reduce((a,b) => {
+        if(a && b) {
+            return a + b
+        }
+    })
     
     
 
@@ -56,7 +64,7 @@ export function CartModal(this: any) {
         <>
         
             <div 
-                className="absolute z-50 top-32 left-4 bg-white p-8 shadow-lg] 
+                className="fixed z-50 top-32 left-4 bg-white p-8 shadow-lg] 
                 rounded-lg w-[92%] flex flex-col gap-8 border-2"
             >
                 <div className="flex justify-between ">
