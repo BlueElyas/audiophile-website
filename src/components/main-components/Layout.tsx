@@ -14,9 +14,11 @@ export function Layout() {
 
     return(
         <>
-            <Header handleModalDisplay={handleModalDisplay}/>
-            <Outlet/>
-            <Footer/>
+            <div className={`m-0 p-0  ${modalDisplay ? 'opacity-40 ' : ''}`}>
+                <Header handleModalDisplay={handleModalDisplay}/>
+                <Outlet/>
+                <Footer/>
+            </div>
 
             {modalDisplay && <CartModal />}
         </>
