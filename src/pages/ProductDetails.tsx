@@ -42,13 +42,11 @@ export function ProductDetails() {
                     <p className="opacity-50">{selectedItem.description}</p>
                     <h4 className="tracking-wider font-bold">$ {selectedItem.price.toLocaleString()}</h4>
                     <div className="flex items-center justify-around">
-
                         <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
                             <button onClick={() => decreaseCartQuantity(slug!) }>-</button>
                             <p>{quantity >= 0 ? quantity : 0}</p> 
                             <button onClick={() => increaseCartQuantity(slug!) }>+</button>
                         </div>
-
                         <button className="py-4 px-6 bg-[#D87D4A] text-white">ADD TO CART</button>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ export function Home() {
                         <div className="rounded-full border-white border-2 w-56 h-56"></div>
                     </div>
                     <img 
-                        src="public\assets\home\mobile\image-speaker-zx9.png" 
+                        src="\assets\home\mobile\image-speaker-zx9.png" 
                         alt="picture of speakers" 
                         className="absolute w-30 h-40 top-16 left-16"
                     />
@@ -43,7 +43,7 @@ export function Home() {
 
             <div className="relative px-6 mt-4 mb-4 ">
                 <img 
-                    src="public\assets\home\mobile\image-speaker-zx7.jpg" 
+                    src="\assets\home\mobile\image-speaker-zx7.jpg" 
                     alt=""
                     className="rounded-lg" />
                 <div className="absolute top-24 ml-7">
@@ -54,7 +54,7 @@ export function Home() {
 
             <div className="px-6">
                 <img 
-                    src="public\assets\home\mobile\image-earphones-yx1.jpg" 
+                    src="\assets\home\mobile\image-earphones-yx1.jpg" 
                     alt="" 
                     className="rounded-lg"/>
                 <div className="bg-gray-100 mt-4 py-8 px-6 rounded-lg">
