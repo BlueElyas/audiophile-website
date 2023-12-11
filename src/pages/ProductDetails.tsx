@@ -91,8 +91,7 @@ export function ProductDetails() {
                             <h5>{item.name}</h5>
                             <Link to={`/${itemCategory}/${item.slug}`}>
                                 <SeeProductButton 
-                                    style="bg-[#D87D4A] text-white text-sm tracking-wide font-normal" 
-                                    handleClick={()=>{}}/>
+                                    style="bg-[#D87D4A] text-white text-sm tracking-wide font-normal" />
                             </Link>
                         </div>
                     )

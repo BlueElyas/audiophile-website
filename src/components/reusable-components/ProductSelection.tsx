@@ -14,7 +14,7 @@ export function ProductSelection(data: any[]) {
                 <h1 className='text-4xl font-bold uppercase'>{data.name}</h1>
                 <p>{data.description}</p>
                 <Link to={`/${data.category}/${data.slug}`} state={data}>
-                    <SeeProductButton style="bg-[#D87D4A] text-white" handleClick={() => {}}/>
+                    <SeeProductButton style="bg-[#D87D4A] text-white"/>
                 </Link>
             </div>
         )

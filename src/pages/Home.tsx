@@ -16,7 +16,7 @@ export function Home() {
                     <h1 className="text-4xl">XX99 Mark II HeadphoneS</h1>
                     <p className="normal-case opacity-70 shadow-sm">Experience natural, lifelike audio and exceptional build quality 
                         made for the passionate music enthusiast.</p>
-                    <SeeProductButton style="bg-[#D87D4A] w-2/3 place-self-center" handleClick={() => {}}/>
+                    <SeeProductButton style="bg-[#D87D4A] w-2/3 place-self-center"/>
 
                 </div>
             </div>
@@ -38,7 +38,7 @@ export function Home() {
                 </div>
                 <h1 className="text-5xl">ZX9 <br /> SPEAKER</h1>
                 <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                <SeeProductButton style="bg-black mb-8" handleClick={() => {}}/>
+                <SeeProductButton style="bg-black mb-8"/>
             </div>
 
             <div className="relative px-6 mt-4 mb-4 ">
@@ -48,7 +48,7 @@ export function Home() {
                     className="rounded-lg" />
                 <div className="absolute top-24 ml-7">
                     <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
-                    <SeeProductButton style="border-black border-[1px] font-bold" handleClick={() => {}}/>
+                    <SeeProductButton style="border-black border-[1px] font-bold"/>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@ export function Home() {
                     className="rounded-lg"/>
                 <div className="bg-gray-100 mt-4 py-8 px-6 rounded-lg">
                     <h1 className="font-bold text-3xl mb-6">YX1 EARPHONES</h1>
-                    <SeeProductButton style="border-black border-[1px] font-bold" handleClick={() => {}}/>
+                    <SeeProductButton style="border-black border-[1px] font-bold"/>
                 </div>
             </div>
 
