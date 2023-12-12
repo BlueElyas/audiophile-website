@@ -14,11 +14,7 @@ export function Checkout() {
             <div className="my-2 mx-8">
                 <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
                 <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
-                <div className="flex flex-col">
-                    <label htmlFor="name" className="font-bold text-sm mt-4">Name</label>
-                    <input type="text" id="name" className="border-2 p-2 pl-4 rounded-lg mt-1" placeholder="name"/>
-                </div>
-                <CheckoutInput/>
+                <CheckoutInput type='text' placeholder="Alexei Ward" required={false} maxLength={16} name="Name" id="name" />
             </div>
         </div>
     )
