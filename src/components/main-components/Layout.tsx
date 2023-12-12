@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { useState } from "react";
 import { CartModal } from "../../pages/CartModal";
+import { useShoppingCart } from "../../context/CartContext";
 
 
 export function Layout() {
-    const [modalDisplay, setModalDisplay] = useState(false)
-
-    const handleModalDisplay  = () : void => {
-        setModalDisplay(!modalDisplay)
-    }
+    const {
+        modalDisplay,
+        handleModalDisplay
+    } = useShoppingCart()
+    
 
     return(
         <>

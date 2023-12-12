@@ -18,6 +18,8 @@ type ShoppingCartContext = {
     cartModalItems: CartItem[]
     clearCart: () => void
     setCartModalItems: Function
+    modalDisplay: boolean
+    handleModalDisplay: () => void
 }
 
 const CartContext = createContext({} as ShoppingCartContext)
@@ -31,6 +33,11 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
     const [cartItems, setCartItems] = useState<CartItem[]>([])
     const [initializedLoading, setInitializedLoading] = useState(true)
     const [cartModalItems, setCartModalItems] = useState<typeof cartItems>([])
+    const [modalDisplay, setModalDisplay] = useState(false)
+
+    const handleModalDisplay  = () : void => {
+        setModalDisplay(!modalDisplay)
+    }
 
     useEffect(() => {
         const savedCartItems = localStorage.getItem('cart')
@@ -125,9 +132,21 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         localStorage.clear()
     }
 
+    
+
     return(
         <CartContext.Provider 
-            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems, clearCart, setCartModalItems }}>
+            value={{ 
+                getItemQuantity, 
+                increaseCartQuantity, 
+                decreaseCartQuantity, 
+                removeFromCart, 
+                addToCart, 
+                cartModalItems, 
+                clearCart, 
+                setCartModalItems,
+                handleModalDisplay,
+                modalDisplay }}>
             {children}
         </CartContext.Provider>
     )

@@ -12,6 +12,7 @@ type CartModalDefaultBasketProps = {
 export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, cartItemDetails } : CartModalDefaultBasketProps ) {
     const {
         clearCart,
+        handleModalDisplay
     } = useShoppingCart()   
 
     console.log(totalPrice)
@@ -19,8 +20,8 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
 
     return(
         <div 
-                className="fixed z-50 top-20 left-4 bg-white p-8 shadow-lg] 
-                rounded-lg w-[92%] flex flex-col gap-8 border-2"
+            className="fixed z-50 top-20 left-4 bg-white p-8 shadow-lg] 
+            rounded-lg w-[92%] flex flex-col gap-8 border-2"
             >
             <div className="flex justify-between ">
                 <h1 className="font-bold">CART ({lengthOfCart})</h1>
@@ -37,9 +38,13 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                 <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
             </div>
             <button 
-                className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed" >                                
-
-                    {totalPrice === 0 ? "Add items to this cart..." : <NavLink to='/checkout' state={cartItemDetails}>CHECKOUT </NavLink>}
+                className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed"
+            >                                
+                    {
+                        totalPrice === 0 ? 
+                        <button onClick={handleModalDisplay}> Add items to this cart...</button> : 
+                        <NavLink to='/checkout' state={cartItemDetails}>CHECKOUT </NavLink>
+                    }
             </button>
         </div>
     )
