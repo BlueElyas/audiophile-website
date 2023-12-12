@@ -3,6 +3,7 @@ import { StyledCheckoutComponent } from "../components/reusable-components/Style
 import { CheckoutInput } from "../components/reusable-components/CheckoutInput"
 import { SetStateAction, useState } from "react"
 import { CheckoutRadioInput } from "../components/reusable-components/CheckoutRadioInput"
+import { CheckoutProductItemSummary } from "../components/reusable-components/CheckoutProductItemSummary"
 
 export function Checkout() {
     const [selectedOption, setSelectedOption] = useState('e-Money')
@@ -15,25 +16,6 @@ export function Checkout() {
     function handleChange(e: { target: { value: SetStateAction<string> } }) {
         setSelectedOption(e.target.value)
     }
-
-    const mappedSelectedProducts = ( products: any[]) => products.map((item) => {
-        return (
-            <div className="flex justify-between items-center gap-8 my-8" key={item.id}>    
-                <div className="flex items-center gap-8">
-                    <img
-                        src={item.categoryImage?.mobile.slice(1)}
-                        alt=""
-                        className="w-20 h-20 rounded-lg" 
-                    />
-                    <div>
-                        <h5 className="text-sm font-bold">{item.name}</h5>
-                        <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
-                    </div>
-                </div>
-                <p>x{item.quantity}</p>
-            </div>
-        )
-    }) 
 
     return(
         <div className="m-4">                
@@ -65,7 +47,7 @@ export function Checkout() {
                 </>
                 : ''}
 
-                {mappedSelectedProducts(checkoutProducts)}
+                {CheckoutProductItemSummary(checkoutProducts)}
 
                 <button type="submit">Continue&pay</button>
             </form>
