@@ -21,10 +21,14 @@ export function Checkout() {
         setSelectedOption(e.target.value)
     }
 
+    function handleSubmit(e: { preventDefault: () => void }) {
+        e.preventDefault()
+    }
+
     return(
-        <div className="m-4">                
+        <div className="m-4 ">                
             <button type="button" onClick={() => navigate(-1)} className="mb-8 opacity-60 capitalize">Go back</button>
-            <form className="my-2 mx-8">
+            <form className="my-2 mx-8 flex flex-col">
                 <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
 
                 <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
@@ -56,7 +60,13 @@ export function Checkout() {
 
                 <CheckOutPriceSummary totalPrice={totalPrice}/>
 
-                <button type="submit">Continue&pay</button>
+                <button 
+                    type="submit" 
+                    className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold"
+                    onClick={handleSubmit}    
+                >
+                        Continue&pay
+                </button>
             </form>
         </div>
     )
