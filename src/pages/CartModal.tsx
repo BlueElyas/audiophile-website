@@ -10,10 +10,32 @@ type cartItemProperties ={
 export function CartModal(this: any) {
     const {
         cartModalItems,
+        setCartModalItems
     } = useShoppingCart()
 
     if(!(typeof cartModalItems)) {
         return <h1>Information not found</h1>
+    }
+
+    const handleIncreaseQuantity = (slug: string) => {
+        const updatedItems = cartModalItems.map(item => {
+            if (item.slug === slug) {
+                return { ...item, quantity: item.quantity + 1 }
+            }
+            return item
+        })
+        setCartModalItems(updatedItems)
+    }
+
+    // Handler for decreasing quantity
+    const handleDecreaseQuantity = (slug: string) => {
+        const updatedItems = cartModalItems.map(item => {
+            if (item.slug === slug) {
+                return { ...item, quantity: item.quantity - 1 }
+            }
+            return item
+        }).filter(item => item.quantity > 0)
+        setCartModalItems(updatedItems)
     }
 
     const cartItemDetails = cartModalItems.map((
@@ -26,6 +48,8 @@ export function CartModal(this: any) {
     })
 
     const mappedCartItems = cartItemDetails.map(item => {
+        const itemSlug = item.slug ? item.slug : ''
+       
         return (
             <>
                 
@@ -38,11 +62,10 @@ export function CartModal(this: any) {
                         <h5 className="text-sm font-bold">{item.name}</h5>
                         <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
                     </div>
-                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-3 pr-24">
-                        <button onClick={() => item.quantity - 1} >-</button> {/*Remove these
-                        onclick functions */}
-                        <p>{item.price}</p>
-                        <button onClick={() => item.quantity + 1}>+</button>
+                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4 pr-[4.6rem]">
+                        <button onClick={() => handleDecreaseQuantity(itemSlug)}>-</button> 
+                        <p>{item.quantity}</p>
+                        <button onClick={() => handleIncreaseQuantity(itemSlug)} >+</button>
                     </div>
                 </div>
             </>
@@ -55,7 +78,8 @@ export function CartModal(this: any) {
         }
     })
 
-    if (eachProductSum.length < 1) {
+    // Default modal display if there are no items in the basket
+    if (cartModalItems.length < 1) {
         return  <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} > 
                     Add items to this cart...
                 </CartModalDefaultBasket>

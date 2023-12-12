@@ -17,6 +17,7 @@ type ShoppingCartContext = {
     addToCart: () => void
     cartModalItems: CartItem[]
     clearCart: () => void
+    setCartModalItems: Function
 }
 
 const CartContext = createContext({} as ShoppingCartContext)
@@ -43,10 +44,9 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
 
     useEffect(() => {
         if(!initializedLoading){
-            const itemsToSave = cartModalItems.filter(item => item.quantity > 0);
-            localStorage.setItem('cart', JSON.stringify(itemsToSave))
+            localStorage.setItem('cart', JSON.stringify(cartModalItems))
         }
-    },[cartItems])
+    },[cartModalItems])
 
     function addToCart() {
         setCartModalItems((prevModalItems) => {
@@ -124,11 +124,10 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         setCartModalItems([])
         localStorage.clear()
     }
-    
 
     return(
         <CartContext.Provider 
-            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems, clearCart }}>
+            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems, clearCart, setCartModalItems }}>
             {children}
         </CartContext.Provider>
     )

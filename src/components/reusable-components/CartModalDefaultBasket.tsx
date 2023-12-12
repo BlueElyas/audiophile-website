@@ -10,7 +10,7 @@ type CartModalDefaultBasketProps = {
 export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice } : CartModalDefaultBasketProps ) {
 
     const {
-        clearCart
+        clearCart,
     } = useShoppingCart()
     
 
