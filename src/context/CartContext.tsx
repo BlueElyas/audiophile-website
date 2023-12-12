@@ -16,6 +16,7 @@ type ShoppingCartContext = {
     removeFromCart: (slug: string) => void
     addToCart: () => void
     cartModalItems: CartItem[]
+    clearCart: () => void
 }
 
 const CartContext = createContext({} as ShoppingCartContext)
@@ -112,15 +113,22 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         setCartItems(currItems => {
             return currItems.filter(item => item.slug !== slug)
         })
-        setCartModalItems([])
+        setCartModalItems(currItems => {
+            return currItems.filter(item => item.slug !== slug)
+        })
         localStorage.clear()
     }
 
+    function clearCart() {
+        setCartItems([])
+        setCartModalItems([])
+        localStorage.clear()
+    }
     
 
     return(
         <CartContext.Provider 
-            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems }}>
+            value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems, clearCart }}>
             {children}
         </CartContext.Provider>
     )

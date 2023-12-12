@@ -56,9 +56,9 @@ export function CartModal(this: any) {
     })
 
     if (eachProductSum.length < 1) {
-        return <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} > 
-        Add items to this cart...
-    </CartModalDefaultBasket>
+        return  <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} > 
+                    Add items to this cart...
+                </CartModalDefaultBasket>
     }
 
     const totalPrice = eachProductSum.reduce((a,b) => {
@@ -71,15 +71,8 @@ export function CartModal(this: any) {
 
     if(totalPrice)
     return(
-        <> 
-            
-
-                <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice} > 
-                    {mappedCartItems}
-                </CartModalDefaultBasket>
-                
-
-                
-        </>
+            <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice} > 
+                {mappedCartItems}
+            </CartModalDefaultBasket>
     )
 }
