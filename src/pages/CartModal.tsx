@@ -47,24 +47,21 @@ export function CartModal(this: any) {
         const itemSlug = item.slug ? item.slug : ''
        
         return (
-            <>
-                
-                <div className="grid grid-cols-3 items-center justify-center gap-4 " key={item.id}>
-                    <img
-                        src={item.categoryImage?.mobile.slice(1)}
-                        alt=""
-                        className="w-20 h-20 rounded-lg" />
-                    <div>
-                        <h5 className="text-sm font-bold">{item.name}</h5>
-                        <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
-                    </div>
-                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4 pr-[4.6rem]">
-                        <button onClick={() => handleDecreaseQuantity(itemSlug)}>-</button> 
-                        <p>{item.quantity}</p>
-                        <button onClick={() => handleIncreaseQuantity(itemSlug)} >+</button>
-                    </div>
+            <div className="grid grid-cols-3 items-center justify-center gap-4 " key={item.id}>
+                <img
+                    src={item.categoryImage?.mobile.slice(1)}
+                    alt=""
+                    className="w-20 h-20 rounded-lg" />
+                <div>
+                    <h5 className="text-sm font-bold">{item.name}</h5>
+                    <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
                 </div>
-            </>
+                <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4 pr-[4.6rem]">
+                    <button onClick={() => handleDecreaseQuantity(itemSlug)}>-</button> 
+                    <p>{item.quantity}</p>
+                    <button onClick={() => handleIncreaseQuantity(itemSlug)} >+</button>
+                </div>
+            </div>
         )
     })
 

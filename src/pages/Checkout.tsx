@@ -10,12 +10,30 @@ export function Checkout() {
     const location = useLocation()
     const navigate = useNavigate()
 
-    console.log(location.state)
+    const checkoutProducts = location.state
 
     function handleChange(e: { target: { value: SetStateAction<string> } }) {
         setSelectedOption(e.target.value)
     }
 
+    const mappedSelectedProducts = ( products: any[]) => products.map((item) => {
+        return (
+            <div className="flex justify-between items-center gap-8 my-8" key={item.id}>    
+                <div className="flex items-center gap-8">
+                    <img
+                        src={item.categoryImage?.mobile.slice(1)}
+                        alt=""
+                        className="w-20 h-20 rounded-lg" 
+                    />
+                    <div>
+                        <h5 className="text-sm font-bold">{item.name}</h5>
+                        <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
+                    </div>
+                </div>
+                <p>x{item.quantity}</p>
+            </div>
+        )
+    }) 
 
     return(
         <div className="m-4">                
@@ -46,6 +64,8 @@ export function Checkout() {
                     <CheckoutInput type="text" placeholder="6969" maxLength={4} name="e-Money Pin" id="e-money-pin" pattern="^[0-9]{4}$" /> 
                 </>
                 : ''}
+
+                {mappedSelectedProducts(checkoutProducts)}
 
                 <button type="submit">Continue&pay</button>
             </form>

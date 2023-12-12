@@ -13,8 +13,6 @@ export function CheckoutInput( { ...props }: CheckoutInputProps ) {
         pattern
      } = props
 
-    console.log(props)
-
     return (
         <div className="flex flex-col">
             <label htmlFor={id} className="font-bold text-sm mt-4">{name}</label>
