@@ -12,10 +12,22 @@ export function Checkout() {
     const location = useLocation()
     const navigate = useNavigate()
 
-    const checkoutProducts = location.state.cartItemDetails
-    const totalPrice = location.state.totalPrice
+    const checkoutProducts = location.state?.cartItemDetails
+    const totalPrice = location.state?.totalPrice
 
-    console.log(totalPrice)
+    if (!checkoutProducts || checkoutProducts.length === 0) {
+        return (
+            <div className="flex flex-col justify-center items-center my-32 gap-8">
+                <h1 className="font-bold text-3xl">No items in cart</h1>
+                <button 
+                    className="uppercase text-white bg-[#D87D4A] py-3 px-8 rounded-lg font-bold"
+                    onClick={() => navigate('/')}
+                >
+                    Go back home
+                </button>
+            </div>
+        )
+    }
 
     function handleChange(e: { target: { value: SetStateAction<string> } }) {
         setSelectedOption(e.target.value)
