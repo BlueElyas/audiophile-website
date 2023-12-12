@@ -33,7 +33,7 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice } 
                 <h5>TOTAL</h5>
                 <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
             </div>
-            <button className="bg-[#D87D4A] text-white py-4 rounded-sm">CHECKOUT</button>
+            <button className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed" disabled={totalPrice ? false : true}>CHECKOUT</button>
         </div>
     )
 }
