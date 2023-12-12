@@ -4,13 +4,15 @@ import { Logo } from "../svgs/Logo";
 import { useState } from 'react'
 import { NavBar } from "./NavBar";
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../../context/CartContext";
 
-interface CartModalProps {
-    handleModalDisplay: () => void
-}
 
-export function Header( { handleModalDisplay } : CartModalProps )  {
+export function Header(  )  {
     const [showNav, setShowNav] = useState(false)
+
+    const {
+        handleModalDisplay
+    } = useShoppingCart()
 
     function handleClick() : void {
         setShowNav(!showNav)

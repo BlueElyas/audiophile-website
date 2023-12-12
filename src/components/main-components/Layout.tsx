@@ -7,15 +7,14 @@ import { useShoppingCart } from "../../context/CartContext";
 
 export function Layout() {
     const {
-        modalDisplay,
-        handleModalDisplay
+        modalDisplay
     } = useShoppingCart()
     
 
     return(
         <>
             
-            <Header handleModalDisplay={handleModalDisplay}/>
+            <Header/>
             <div className={`m-0 p-0  ${modalDisplay ? 'opacity-40 bg-gray-600' : ''}`}>
                 <Outlet/>
                 <Footer/>
