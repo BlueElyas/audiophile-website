@@ -1,5 +1,6 @@
 import { fetchProductDetails } from "../utilities/fetchProductDetails"
 import { useShoppingCart } from "../context/CartContext";
+import { CartModalDefaultBasket } from "../components/reusable-components/CartModalDefaultBasket";
 
 type cartItemProperties ={
     slug: string | undefined ;
@@ -28,21 +29,23 @@ export function CartModal(this: any) {
         return (
             <>
                 
-                <div className="flex justify-between font-bold items-center gap-4" key={item.id}>
+                <div className="grid grid-cols-3 items-center justify-center gap-4 " key={item.id}>
                     <img
                         src={item.categoryImage?.mobile.slice(1)}
                         alt=""
                         className="w-20 h-20 rounded-lg" />
-                    <div className="">
-                        <h5>{item.name}</h5>
+                    <div>
+                        <h5 className="text-sm font-bold">{item.name}</h5>
                         <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
                     </div>
-                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4">
-                        <button>-</button>
-                        <p>{item.quantity}</p>
-                        <button>+</button>
+                    <div className="flex bg-[#F1F1F1] gap-4 py-3 px-3 pr-24">
+                        <button onClick={() => item.quantity - 1} >-</button> {/*Remove these
+                        onclick functions */}
+                        <p>{item.price}</p>
+                        <button onClick={() => item.quantity + 1}>+</button>
                     </div>
-                </div></>
+                </div>
+            </>
         )
     })
 
@@ -52,6 +55,12 @@ export function CartModal(this: any) {
         }
     })
 
+    if (eachProductSum.length < 1) {
+        return <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} > 
+        Add items to this cart...
+    </CartModalDefaultBasket>
+    }
+
     const totalPrice = eachProductSum.reduce((a,b) => {
         if(a && b) {
             return a + b
@@ -59,29 +68,18 @@ export function CartModal(this: any) {
             return a
         }
     })
-    
-    
 
+    if(totalPrice)
     return(
-        <>
-        
-            <div 
-                className="fixed z-50 top-32 left-4 bg-white p-8 shadow-lg] 
-                rounded-lg w-[92%] flex flex-col gap-8 border-2"
-            >
-                <div className="flex justify-between ">
-                    <h1 className="font-bold">CART ({cartItemDetails.length})</h1>
-                    <button className="underline opacity-50">Remove All</button>
-                </div>
+        <> 
+            
 
-                {mappedCartItems}
+                <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice} > 
+                    {mappedCartItems}
+                </CartModalDefaultBasket>
+                
 
-                <div className="flex justify-between">
-                    <h5>TOTAL</h5>
-                    <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
-                </div>
-                <button className="bg-[#D87D4A] text-white py-4 rounded-sm">CHECKOUT</button>
-            </div>
+                
         </>
     )
 }

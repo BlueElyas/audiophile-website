@@ -116,6 +116,8 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         localStorage.clear()
     }
 
+    
+
     return(
         <CartContext.Provider 
             value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, addToCart, cartModalItems }}>
