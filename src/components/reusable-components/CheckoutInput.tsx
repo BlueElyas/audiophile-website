@@ -7,10 +7,10 @@ export function CheckoutInput( { ...props }: CheckoutInputProps ) {
     const { 
         type,
         placeholder,
-        required,
         maxLength,
         name,
-        id
+        id,
+        pattern
      } = props
 
     console.log(props)
@@ -18,7 +18,15 @@ export function CheckoutInput( { ...props }: CheckoutInputProps ) {
     return (
         <div className="flex flex-col">
             <label htmlFor={id} className="font-bold text-sm mt-4">{name}</label>
-            <input type={type} id={id} className="border-2 p-2 pl-4 rounded-lg mt-1" placeholder={placeholder} maxLength={maxLength} required/>
+            <input 
+                type={type} 
+                id={id} 
+                className="border-2 p-2 pl-4 rounded-lg mt-1" 
+                placeholder={placeholder} 
+                maxLength={maxLength} 
+                required
+                pattern={pattern}
+                />
         </div>
     )
 }
