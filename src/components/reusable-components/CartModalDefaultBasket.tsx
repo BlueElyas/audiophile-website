@@ -43,7 +43,7 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                     {
                         totalPrice === 0 ? 
                         <button onClick={handleModalDisplay}> Add items to this cart...</button> : 
-                        <NavLink onClick={handleModalDisplay} to='/checkout' state={cartItemDetails}>CHECKOUT </NavLink>
+                        <NavLink onClick={handleModalDisplay} to='/checkout' state={{cartItemDetails, totalPrice}}>CHECKOUT </NavLink>
                     }
             </button>
         </div>

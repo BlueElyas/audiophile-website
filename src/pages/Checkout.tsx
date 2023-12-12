@@ -4,6 +4,7 @@ import { CheckoutInput } from "../components/reusable-components/CheckoutInput"
 import { SetStateAction, useState } from "react"
 import { CheckoutRadioInput } from "../components/reusable-components/CheckoutRadioInput"
 import { CheckoutProductItemSummary } from "../components/reusable-components/CheckoutProductItemSummary"
+import { CheckOutPriceSummary } from "../components/reusable-components/CheckoutPriceSummary"
 
 export function Checkout() {
     const [selectedOption, setSelectedOption] = useState('e-Money')
@@ -11,7 +12,10 @@ export function Checkout() {
     const location = useLocation()
     const navigate = useNavigate()
 
-    const checkoutProducts = location.state
+    const checkoutProducts = location.state.cartItemDetails
+    const totalPrice = location.state.totalPrice
+
+    console.log(totalPrice)
 
     function handleChange(e: { target: { value: SetStateAction<string> } }) {
         setSelectedOption(e.target.value)
@@ -47,7 +51,10 @@ export function Checkout() {
                 </>
                 : ''}
 
+                <h1 className="uppercase tracking-wider font-bold mt-8">Summary</h1>
                 {CheckoutProductItemSummary(checkoutProducts)}
+
+                <CheckOutPriceSummary totalPrice={totalPrice}/>
 
                 <button type="submit">Continue&pay</button>
             </form>

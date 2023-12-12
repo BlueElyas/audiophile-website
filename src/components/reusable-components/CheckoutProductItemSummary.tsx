@@ -1,5 +1,3 @@
-
-
 export const CheckoutProductItemSummary = ( products: any[]) => products.map((item) => {
     return (
         <div className="flex justify-between items-center gap-8 my-8" key={item.id}>    
