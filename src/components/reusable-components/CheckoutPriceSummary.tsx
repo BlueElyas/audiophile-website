@@ -4,8 +4,8 @@ type CheckOutPriceSummaryProps ={
 
 export function CheckOutPriceSummary( {totalPrice} : CheckOutPriceSummaryProps) {
     const shipping = 50
-    const vat = (20/100) * totalPrice
-    const total = totalPrice + shipping + vat
+    const vat = (Math.round(((20/100) * totalPrice)))
+    const total = Math.round((totalPrice + shipping + vat))
 
     return(
         <div className="flex flex-col mb-8">

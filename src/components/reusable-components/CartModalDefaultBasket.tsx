@@ -37,15 +37,15 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                 <h5>TOTAL</h5>
                 <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
             </div>
-            <button 
-                className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed"
+            <div 
+                className="bg-[#D87D4A] text-white py-4 rounded-lg disabled:cursor-not-allowed text-center"
             >                                
                     {
                         totalPrice === 0 ? 
                         <button onClick={handleModalDisplay}> Add items to this cart...</button> : 
                         <NavLink onClick={handleModalDisplay} to='/checkout' state={{cartItemDetails, totalPrice}}>CHECKOUT </NavLink>
                     }
-            </button>
+            </div>
         </div>
     )
 }
