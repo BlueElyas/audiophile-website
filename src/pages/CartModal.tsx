@@ -76,6 +76,11 @@ export function CartModal(this: any) {
 
     // Default modal display if there are no items in the basket
     
+    if (cartModalItems.length < 1 ) {
+        return  <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} cartItemDetails={undefined}> 
+                    Add items to this cart...
+                </CartModalDefaultBasket>
+    }
 
     const totalPrice = eachProductSum.reduce((a,b) => {
         if(a && b) {
@@ -85,15 +90,11 @@ export function CartModal(this: any) {
         }
     })
 
-    if (cartModalItems.length < 1 ) {
-        return  <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} > 
-                    Add items to this cart...
-                </CartModalDefaultBasket>
-    }
+   
 
     // 
     return(
-            <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice ? totalPrice : 0} > 
+            <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice ? totalPrice : 0} cartItemDetails={cartItemDetails} > 
                 {mappedCartItems}
             </CartModalDefaultBasket>
     )

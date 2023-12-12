@@ -1,17 +1,20 @@
 import { ReactNode } from "react"
 import { useShoppingCart } from "../../context/CartContext"
+import { NavLink } from "react-router-dom"
 
 type CartModalDefaultBasketProps = {
     totalPrice: number 
     lengthOfCart: number
     children: ReactNode
+    cartItemDetails: undefined | any[]
 }
 
-export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice } : CartModalDefaultBasketProps ) {
-
+export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, cartItemDetails } : CartModalDefaultBasketProps ) {
     const {
         clearCart,
-    } = useShoppingCart()
+    } = useShoppingCart()   
+
+    console.log(totalPrice)
     
 
     return(
@@ -33,7 +36,11 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice } 
                 <h5>TOTAL</h5>
                 <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
             </div>
-            <button className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed" disabled={totalPrice ? false : true}>CHECKOUT</button>
+            <button 
+                className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed" >                                
+
+                    {totalPrice === 0 ? "Add items to this cart..." : <NavLink to='/checkout' state={cartItemDetails}>CHECKOUT </NavLink>}
+            </button>
         </div>
     )
 }
