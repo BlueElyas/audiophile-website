@@ -5,5 +5,5 @@ type StyledCheckoutComponentProps = {
 }
 
 export function StyledCheckoutComponent( { children } : StyledCheckoutComponentProps ){
-    return <h4 className="uppercase text-[#D87D4A] tracking-wide">{children}</h4>
+    return <h4 className="uppercase text-[#D87D4A] tracking-wide mt-6">{children}</h4>
 }
