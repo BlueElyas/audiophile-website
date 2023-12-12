@@ -1,6 +1,28 @@
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../context/CartContext";
+import { fetchProductDetails } from "../utilities/fetchProductDetails";
+
+type cartItemProperties ={
+    slug: string | undefined ;
+    quantity: number
+}
 
 export function CheckoutModal() {
+    const {
+        cartModalItems
+    } = useShoppingCart()
+
+    const cartItemDetails = cartModalItems.map((
+        item: cartItemProperties ) => {
+        const details = fetchProductDetails(item.slug)
+        return {
+            ...details,
+            quantity: item.quantity
+            }
+    })
+
+    const multipleOrSingleCartItems = cartItemDetails.length -1 === 1 ? '' : 's' 
+
     return(
             <div className="px-6 py-8 m-4  bg-white rounded-lg flex flex-col">
                 <div className="flex flex-col gap-6">
@@ -25,12 +47,12 @@ export function CheckoutModal() {
                                 className="w-20 h-20 rounded-lg" 
                             />
                             <div>
-                                <h5 className="text-sm font-bold">XX99 MK 11</h5>
-                                <p className="opacity-60">$ PRICE</p>
+                                <h5 className="text-sm font-bold">{cartItemDetails[0].name}</h5>
+                                <p className="opacity-60">$ {cartItemDetails[0].price}</p>
                             </div>
-                            <p>x QUANTITY</p>
+                            <p>x{cartItemDetails[0].price}</p>
                         </div>
-                        <p className="font-bold opacity-60">and 2 other items</p>
+                        <p className="font-bold opacity-60">and {cartItemDetails.length - 1} other item{multipleOrSingleCartItems}</p>
                     </div>
                 </div>
                 
