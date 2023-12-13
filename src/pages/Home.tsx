@@ -10,7 +10,7 @@ export function Home() {
         <>
             <Hero />
 
-            <div className="flex">
+            <div className="flex justify-around mx-4 mb-4">
                 {mappedProductNavLinks}
             </div>
 

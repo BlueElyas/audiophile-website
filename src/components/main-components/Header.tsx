@@ -24,7 +24,9 @@ export function Header( )  {
     const windowSize = useWindowSize()
     const windowWidth = windowSize.width
 
-    return (
+    
+
+    return windowWidth && (
         <>
             <div 
                 className="bg-[#1A1A1A] text-white flex justify-between px-4 py-7 items-center z-40 relative 
