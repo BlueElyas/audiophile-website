@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { SeeProductButton } from "./SeeProductButton";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import { SeeProductButton } from "../SeeProductButton";
+import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export function Zx7Speaker() {
     const window = useWindowSize()

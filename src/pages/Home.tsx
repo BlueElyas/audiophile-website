@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 import { AboutSection } from "../components/reusable-components/AboutSection";
 import { mappedProductNavLinks } from "../components/reusable-components/ProductNavLinks";
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
-import { Hero } from "../components/reusable-components/Hero";
-import { Zx9Speaker } from "../components/reusable-components/Zx9Speaker";
-import { Zx7Speaker } from "../components/reusable-components/Zx7Speaker";
+import { Hero } from "../components/reusable-components/home-components/Hero";
+import { Zx9Speaker } from "../components/reusable-components/home-components/Zx9Speaker";
+import { Zx7Speaker } from "../components/reusable-components/home-components/Zx7Speaker";
 
 export function Home() {
     return(
