@@ -4,7 +4,7 @@ export function NavBar() {
 
     return(
         <>
-            <nav className="sticky">
+            <nav className="absolute z-[30] bg-white w-full ">
                 {mappedProductNavLinks}
             </nav>
         </>
