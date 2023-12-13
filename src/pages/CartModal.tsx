@@ -7,7 +7,7 @@ type cartItemProperties ={
     quantity: number
 }
 
-export function CartModal(this: any) {
+export function CartModal() {
     const {
         cartModalItems,
         setCartModalItems
@@ -91,8 +91,8 @@ export function CartModal(this: any) {
 
     // 
     return(
-            <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice ? totalPrice : 0} cartItemDetails={cartItemDetails} > 
-                {mappedCartItems}
-            </CartModalDefaultBasket>
+        <CartModalDefaultBasket lengthOfCart={cartItemDetails.length} totalPrice={totalPrice ? totalPrice : 0} cartItemDetails={cartItemDetails} > 
+            {mappedCartItems}
+        </CartModalDefaultBasket>
     )
 }

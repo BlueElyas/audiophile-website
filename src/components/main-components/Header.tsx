@@ -5,13 +5,15 @@ import { useState } from 'react'
 import { NavBar } from "./NavBar";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
+import { CartModal } from "../../pages/CartModal";
 
 
-export function Header(  )  {
+export function Header( )  {
     const [showNav, setShowNav] = useState(false)
 
     const {
-        handleModalDisplay
+        handleModalDisplay,
+        modalDisplay
     } = useShoppingCart()
 
     function handleClick() : void {
@@ -37,6 +39,8 @@ export function Header(  )  {
             <div className="">
                 {showNav && <NavBar/>}
             </div>  
+
+            {modalDisplay && <CartModal />}
         </>
     )
 }
