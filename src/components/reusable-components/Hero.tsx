@@ -7,7 +7,7 @@ export function Hero() {
     const width = windowSize.width
 
     return (
-        <div className="relative text-white text-center flex flex-col justify-start items-center  ">
+        <div className="relative text-white text-center flex flex-col justify-start items-center md:h-[700px]">
             <img 
                 src={width >= 768 ? "/assets/home/tablet/image-header.jpg" : "/assets/home/mobile/image-header.jpg"}
                 alt="picture of black headphones" 

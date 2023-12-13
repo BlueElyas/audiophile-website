@@ -8,8 +8,10 @@ export function Home() {
     return(
         <>
             <Hero />
-
-            {mappedProductNavLinks}
+            
+            <div className="flex">
+                {mappedProductNavLinks}
+            </div>
 
             <div className="bg-[#D87D4A] text-white text-center h-[600px] 
                 flex flex-col mx-6 rounded-lg items-center justify-end gap-8 px-4

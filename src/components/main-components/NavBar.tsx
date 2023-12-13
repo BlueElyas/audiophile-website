@@ -4,7 +4,7 @@ export function NavBar() {
 
     return(
         <>
-            <nav className="absolute z-[30] bg-white w-full md:flex md:items-center justify-around">
+            <nav className="absolute z-[30] bg-white w-full md:justify-around  md:flex md:items-center ">
                 {mappedProductNavLinks}
             </nav>
         </>
