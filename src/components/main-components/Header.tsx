@@ -22,11 +22,13 @@ export function Header( )  {
 
     return (
         <>
-            <div className="bg-black text-white flex justify-between px-4 py-7 items-center z-40 relative">
+            <div 
+                className="bg-[#1A1A1A] text-white flex justify-between px-4 py-7 items-center z-40 relative 
+                            md:px-8">
+                
                 <div onClick={handleClick} className="cursor-pointer">
                     <HamburgerIcon/>
                 </div> 
-
                 <NavLink to="/">
                     <Logo/>
                 </NavLink>
@@ -36,10 +38,10 @@ export function Header( )  {
                 </div>
             </div>
 
-            <div className="">
+            <div>
                 {showNav && <NavBar/>}
             </div>  
-
+            <div className="bg-[#1A1A1A] flex items-center justify-center"><div className="bg-gray-600 h-[2px] w-[90%] opacity-50"></div></div>
             {modalDisplay && <CartModal />}
         </>
     )
