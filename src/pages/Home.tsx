@@ -17,7 +17,7 @@ export function Home() {
                     <h1 className="text-4xl">XX99 Mark II HeadphoneS</h1>
                     <p className="normal-case opacity-70 shadow-sm">Experience natural, lifelike audio and exceptional build quality 
                         made for the passionate music enthusiast.</p>
-                    <SeeProductButton style="bg-[#D87D4A] w-2/3 place-self-center"/>
+                        <NavLink to="headphones/xx99-mark-two-headphones"><SeeProductButton style="bg-[#D87D4A] w-2/3 place-self-center"/></NavLink>
 
                 </div>
             </div>
