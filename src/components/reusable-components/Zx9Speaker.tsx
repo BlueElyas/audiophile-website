@@ -16,17 +16,19 @@ export function Zx9Speaker() {
     return(
         <div className="bg-[#D87D4A] text-white text-center h-[600px] 
             flex flex-col mx-6 rounded-lg items-center justify-end gap-8 px-4
-            py-4 ">
-            <div className="relative">
+            py-4 md:relative">
+            <div className="relative md:absolute overflow-hidden">
                 <div className="rounded-full border-white border-2 w-64 h-64 opacity-10 flex justify-center items-center 
-                md:w-[600px] md:h-[600px]"
-            >
-                    <div className="rounded-full border-white border-2 w-56 h-56 md:w-[500px] md:h-[500px]"></div>
+                md:w-[900px] md:h-[900px] md:-translate-y-8"
+                >
+                    <div className="rounded-full border-white border-2 w-56 h-56 md:w-[500px] md:h-[500px] md:flex md:justify-center md:items-center">
+                        {width >= 768 && <div className="rounded-full border-white border-2 w-56 h-56 md:w-[400px] md:h-[400px]"></div>}
+                    </div>
                 </div>
                 <img 
                     src={image}
                     alt="picture of speakers" 
-                    className="absolute w-30 h-40 top-16 left-16 md:bottom-0 md:top-auto md:left-64"
+                    className="absolute w-30 h-40 top-16 left-16 md:bottom-[40%] md:top-auto md:left-96"
                 />
             </div>
             <h1 className="text-5xl md:text-6xl">ZX9 <br /> SPEAKER</h1>
