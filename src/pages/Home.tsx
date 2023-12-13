@@ -10,11 +10,12 @@ export function Home() {
         <>
             <Hero />
 
-            <div className="flex justify-around mx-4 mb-4">
+            <div className="md:flex md:justify-around ">
                 {mappedProductNavLinks}
             </div>
 
             <Zx9Speaker/>
+            
             <div className="relative px-6 mt-4 mb-4 ">
                 <img 
                     src="\assets\home\mobile\image-speaker-zx7.jpg" 

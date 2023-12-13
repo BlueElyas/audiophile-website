@@ -17,7 +17,7 @@ const ProductNavLinks :  {name: string, image: string}[] = [
 
 export const mappedProductNavLinks : JSX.Element[] = ProductNavLinks.map((data, index) => {
     return (
-        <div className="flex gap-8 uppercase flex-col my-4 mt-16 md:w-64 flex-auto m-2" key={index}>
+        <div className="flex gap-8 uppercase flex-col my-4 mt-16 md:w-64 flex-auto mx-6" key={index}>
             <NavLink 
                 to={`/${data.name}`} 
                 className="bg-gray-200 bg-opacity-60 rounded-lg relative h-40 flex flex-col justify-end items-center">
