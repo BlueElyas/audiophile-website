@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { AboutSection } from "../components/reusable-components/AboutSection";
 import { mappedProductNavLinks } from "../components/reusable-components/ProductNavLinks";
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
@@ -38,7 +39,7 @@ export function Home() {
                 </div>
                 <h1 className="text-5xl">ZX9 <br /> SPEAKER</h1>
                 <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                <SeeProductButton style="bg-black mb-8"/>
+                <NavLink to="speakers/zx9-speaker"><SeeProductButton style="bg-black mb-8"/></NavLink>       
             </div>
 
             <div className="relative px-6 mt-4 mb-4 ">
@@ -48,7 +49,7 @@ export function Home() {
                     className="rounded-lg" />
                 <div className="absolute top-24 ml-7">
                     <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
-                    <SeeProductButton style="border-black border-[1px] font-bold"/>
+                    <NavLink to="speakers/zx7-speaker"><SeeProductButton style="border-black border-[1px] font-bold"/></NavLink>
                 </div>
             </div>
 
@@ -59,7 +60,7 @@ export function Home() {
                     className="rounded-lg"/>
                 <div className="bg-gray-100 mt-4 py-8 px-6 rounded-lg">
                     <h1 className="font-bold text-3xl mb-6">YX1 EARPHONES</h1>
-                    <SeeProductButton style="border-black border-[1px] font-bold"/>
+                    <NavLink to="speakers/yx1-earphones"><SeeProductButton style="border-black border-[1px] font-bold"/></NavLink>
                 </div>
             </div>
 
