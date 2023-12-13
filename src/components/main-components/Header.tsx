@@ -59,7 +59,7 @@ export function Header( )  {
                 {showNav && <NavBar/>}
             </div>  
 
-            <div className="bg-[#1A1A1A] flex items-center justify-center"><div className="bg-gray-600 h-[2px] w-[90%] opacity-30"></div></div>
+            <div className="bg-[#1A1A1A] flex items-center justify-center relative z-30"><div className="bg-gray-600 h-[2px] w-[90%] opacity-30"></div></div>
             {modalDisplay && <CartModal />}
         </>
     )
