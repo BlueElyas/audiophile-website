@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
+import { Backdrop } from "../components/reusable-components/Backdrop";
 
 type cartItem ={
     slug: string | undefined ;
@@ -26,6 +27,7 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
     const multipleOrSingleCartItems = cartItemDetails.length -1 === 1 ? '' : 's' 
 
     return(
+        <>
             <div className="px-6 py-8 m-4bg-white rounded-lg flex flex-col fixed shadow-lg border-2 m-4 bg-white z-50">
                 <div className="flex flex-col gap-6">
                     <div className="relative">
@@ -64,7 +66,7 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
                 </div>
 
                 <NavLink onClick={clearCart} className="bg-[#D87D4A] text-white text-center rounded-sm py-4 my-6 " to='/'>BACK TO HOME</NavLink>
-                
             </div>
+            <Backdrop/></>
     )
 }
