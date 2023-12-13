@@ -6,6 +6,10 @@ export function Hero() {
     const windowSize = useWindowSize()
     const width = windowSize.width
 
+    if (!width) {
+        return
+    }
+
     return (
         <div className="relative text-white text-center flex flex-col justify-start items-center md:h-[700px]">
             <img 

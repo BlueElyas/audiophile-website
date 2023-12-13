@@ -4,6 +4,7 @@ import { mappedProductNavLinks } from "../components/reusable-components/Product
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { Hero } from "../components/reusable-components/Hero";
 import { Zx9Speaker } from "../components/reusable-components/Zx9Speaker";
+import { Zx7Speaker } from "../components/reusable-components/Zx7Speaker";
 
 export function Home() {
     return(
@@ -16,16 +17,7 @@ export function Home() {
 
             <Zx9Speaker/>
             
-            <div className="relative px-6 mt-4 mb-4 ">
-                <img 
-                    src="\assets\home\mobile\image-speaker-zx7.jpg" 
-                    alt=""
-                    className="rounded-lg" />
-                <div className="absolute top-24 ml-7">
-                    <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
-                    <NavLink to="speakers/zx7-speaker"><SeeProductButton style="border-black border-[1px] font-bold"/></NavLink>
-                </div>
-            </div>
+            <Zx7Speaker/>
 
             <div className="px-6">
                 <img 
