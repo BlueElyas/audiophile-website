@@ -7,7 +7,6 @@ import { Home } from "./pages/Home"
 import { ProductDetails } from "./pages/ProductDetails"
 import { ShoppingCartProvider } from "./context/CartContext"
 import { Checkout } from "./pages/Checkout"
-import { CheckoutModal } from "./pages/CheckoutModal"
 
 function App() {
   return (
@@ -23,8 +22,6 @@ function App() {
             <Route path="/earphones" element={<Earphones/>}/>
             <Route path="/earphones/:slug" element={<ProductDetails/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
-            <Route path="/finish" element={<CheckoutModal/>}/>
-            {/* The route above is used for testing and will be removed once testing is done */}
           </Route>
         </Routes>
       </ShoppingCartProvider> 
