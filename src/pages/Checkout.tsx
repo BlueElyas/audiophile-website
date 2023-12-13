@@ -45,7 +45,7 @@ export function Checkout() {
         e.preventDefault()
 
         const form = formRef.current
-        
+
         // This is fine, we are expecting form to be invalid as it is null until all form inputs are filled. 
         if(form && form.checkValidity()) {
             setShowModal(true)
@@ -61,15 +61,15 @@ export function Checkout() {
                     <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
 
                     <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
-                    <CheckoutInput type='text' placeholder="Alexei Ward" maxLength={16} name="Name" id="name"  pattern="^[a-zA-Z]+$"/>
+                    <CheckoutInput type='text' placeholder="Alexei Ward" maxLength={16} name="Name" id="name"  pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/>
                     <CheckoutInput type='email' placeholder="alexei@gmail.com" maxLength={50} name="Email Address" id="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
                     <CheckoutInput type='text' placeholder="+1 202-555-0136" maxLength={16} name="Phone Number" id="phone number" pattern="^[0-9\W_]+$"/>
 
                     <StyledCheckoutComponent>shipping info</StyledCheckoutComponent>
-                    <CheckoutInput type='text' placeholder="1137 Williams Avenue" maxLength={30} name="Your Address" id="address" pattern="^[a-zA-Z0-9_.-]*$" />
-                    <CheckoutInput type='text' placeholder="10001" maxLength={10} name="ZIP Code/Post Code" id="zip code" pattern="^[a-zA-Z0-9_.-]*$" />
-                    <CheckoutInput type='text' placeholder="New York" maxLength={20} name="City" id="city" pattern="^[a-zA-Z]+$" />
-                    <CheckoutInput type='text' placeholder="United States" maxLength={20} name="Country" id="country" pattern="^[a-zA-Z]+$"/> 
+                    <CheckoutInput type='text' placeholder="1137 Williams Avenue" maxLength={30} name="Your Address" id="address" pattern="^[a-zA-Z0-9_. -]*$" />
+                    <CheckoutInput type='text' placeholder="10001" maxLength={10} name="ZIP Code/Post Code" id="zip code" pattern="^[a-zA-Z0-9_. -]*$" />
+                    <CheckoutInput type='text' placeholder="New York" maxLength={20} name="City" id="city" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" />
+                    <CheckoutInput type='text' placeholder="United States" maxLength={20} name="Country" id="country" pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"/> 
 
                     <StyledCheckoutComponent>payment details</StyledCheckoutComponent>
 
