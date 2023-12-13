@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { StyledCheckoutComponent } from "../components/reusable-components/StyledCheckoutGroupHeader"
 import { CheckoutInput } from "../components/reusable-components/CheckoutInput"
-import { SetStateAction, useState } from "react"
+import { SetStateAction, useRef, useState } from "react"
 import { CheckoutRadioInput } from "../components/reusable-components/CheckoutRadioInput"
 import { CheckoutProductItemSummary } from "../components/reusable-components/CheckoutProductItemSummary"
 import { CheckOutPriceSummary } from "../components/reusable-components/CheckoutPriceSummary"
@@ -11,6 +11,7 @@ import { useShoppingCart } from "../context/CartContext"
 export function Checkout() {
     const [selectedOption, setSelectedOption] = useState('e-Money')
     const [showModal, setShowModal] = useState(false)
+    const formRef = useRef(null)
 
     const {
         clearCart
@@ -42,7 +43,13 @@ export function Checkout() {
 
     function handleSubmit(e: { preventDefault: () => void }) {
         e.preventDefault()
-        setShowModal(true)
+
+        const form = formRef.current
+        
+        // This is fine, we are expecting form to be invalid as it is null until all form inputs are filled. 
+        if(form && form.checkValidity()) {
+            setShowModal(true)
+        }
     }
 
     return(
@@ -50,7 +57,7 @@ export function Checkout() {
         {showModal && <CheckoutModal totalPrice={totalPrice} checkoutProducts={checkoutProducts} clearCart={clearCart}/>}
             <div className="m-4 ">                
                 <button type="button" onClick={() => navigate(-1)} className="mb-8 opacity-60 capitalize">Go back</button>
-                <form className="my-2 mx-8 flex flex-col">
+                <form className="my-2 mx-8 flex flex-col" onSubmit={handleSubmit} ref={formRef}>
                     <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
 
                     <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
@@ -85,7 +92,6 @@ export function Checkout() {
                     <button 
                         type="submit" 
                         className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold"
-                        onClick={handleSubmit}    
                     >
                             Continue&pay
                     </button>
