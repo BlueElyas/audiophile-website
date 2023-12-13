@@ -1,14 +1,25 @@
+import { useWindowSize } from "../../hooks/useWindowSize"
+
 export function AboutSection() {
+    const window = useWindowSize()
+    const width = window.width
+
+    if(!width) {
+        return
+    }
+
+    const image = width >= 768 ? "/assets/shared/tablet/image-best-gear.jpg" : "/assets/shared/mobile/image-best-gear.jpg" 
+
     return(
-        <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28">
+        <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28 md:font-bold md:mx-4">
             <img 
-                src="\assets\shared\mobile\image-best-gear.jpg" 
+                src={image}
                 alt="picture of a man with headphones looking to the left"
                 className="rounded-lg" />
-            <h1 className="text-4xl uppercase font=bold">Bringing you the 
+            <h1 className="text-4xl uppercase ">Bringing you the 
                 <span className="text-[#D87D4A]"> best</span> audio gear
             </h1>
-            <p className="opacity-60">Located at the heart of New York City, Audiophile is the premier store for 
+            <p className="opacity-60 md:font-normal md:text-lg">Located at the heart of New York City, Audiophile is the premier store for 
                 high end headphones, earphones, speakers, and audio accessories. We have a large 
                 showroom and luxury demonstration rooms available for you to browse and experience 
                 a wide range of our products. Stop by our store to meet some of the fantastic people 
