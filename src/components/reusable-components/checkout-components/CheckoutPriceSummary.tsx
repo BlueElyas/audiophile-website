@@ -8,7 +8,7 @@ export function CheckOutPriceSummary( {totalPrice} : CheckOutPriceSummaryProps) 
     const total = Math.round((totalPrice + shipping + vat))
 
     return(
-        <div className="flex flex-col mb-8">
+        <div className="flex flex-col mb-8 gap-2">
             <div className="flex justify-between items-center">
                 <p className="opacity-60 uppercase">Total</p>
                 <p className="font-bold">$ {totalPrice.toLocaleString()}</p>
