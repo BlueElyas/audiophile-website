@@ -6,7 +6,7 @@ type cartItem ={
     slug: string | undefined ;
     quantity: number
 }
-
+// clearcart is used, whenever they click go back home, it works
 type CheckoutModalProps ={
     totalPrice: number
     checkoutProducts: any
@@ -28,7 +28,9 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
 
     return(
         <>
-            <div className="px-6 py-8 m-4bg-white rounded-lg flex flex-col fixed shadow-lg border-2 m-4 bg-white z-50">
+            <div className="px-6 py-8 m-4bg-white rounded-lg flex flex-col fixed shadow-lg border-2 m-4 bg-white z-50
+                            md:top-1 md:left-16"
+            >
                 <div className="flex flex-col gap-6">
                     <div className="relative">
                         <svg className="" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -42,31 +44,38 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
                     <p className="opacity-60">You will receive an email confirmation shortly...</p>
                 </div>
                 
-                <div className="bg-gray-100 p-4 rounded-t-lg mt-8">
-                    <div className="flex flex-col justify-between items-center gap-4 mt-8">    
-                        <div className="flex items-center gap-5 border-b-2 pb-6">
-                            <img
-                                src={cartItemDetails[0].categoryImage?.mobile.slice(1)}
-                                alt=""
-                                className="w-20 h-20 rounded-lg" 
-                            />
-                            <div>
-                                <h5 className="text-sm font-bold">{cartItemDetails[0].name}</h5>
-                                <p className="opacity-60">$ {cartItemDetails[0].price.toLocaleString()}</p>
+                    <div className="bg-gray-100 rounded-t-lg mt-8 md:flex">
+                        <div className="flex flex-col justify-between items-center gap-4 mt-8 mb-5 md:flex-1 md:mr-8">    
+                            <div className="flex items-center gap-5 border-b-2 pb-6">
+                                <img
+                                    src={cartItemDetails[0].categoryImage?.mobile.slice(1)}
+                                    alt=""
+                                    className="w-20 h-20 rounded-lg" 
+                                />
+                                <div>
+                                    <h5 className="text-sm font-bold md:text-base">{cartItemDetails[0].name}</h5>
+                                    <p className="opacity-60">$ {cartItemDetails[0].price.toLocaleString()}</p>
+                                </div>
+                                <p>x{cartItemDetails[0].quantity}</p>
                             </div>
-                            <p>x{cartItemDetails[0].quantity}</p>
+                            <p className="font-bold opacity-60">and {cartItemDetails.length - 1} other item{multipleOrSingleCartItems}</p>
                         </div>
-                        <p className="font-bold opacity-60">and {cartItemDetails.length - 1} other item{multipleOrSingleCartItems}</p>
+
+                        <div className="bg-black text-white uppercase p-4 rounded-b-lg font-bold w-full 
+                                        md:flex-1 md:flex md:flex-col md:justify-center md:ml-4"
+                        >
+                            <p className="opacity-60 font-normal md:text-2xl">grand total</p>
+                            <p className="md:text-xl">$ {totalPrice.toLocaleString()}</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div className="bg-black text-white uppercase p-4 rounded-b-lg font-bold">
-                    <p className="opacity-60 font-normal">grand total</p>
-                    <p>$ {totalPrice.toLocaleString()}</p>
-                </div>
+                    
+                    
+  
 
                 <NavLink onClick={clearCart} className="bg-[#D87D4A] text-white text-center rounded-sm py-4 my-6 " to='/'>BACK TO HOME</NavLink>
+
             </div>
-            <Backdrop/></>
+            <Backdrop/>
+        </>
     )
 }
