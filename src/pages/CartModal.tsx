@@ -75,7 +75,7 @@ export function CartModal() {
     
     if (cartModalItems.length < 1 ) {
         return  <CartModalDefaultBasket lengthOfCart={0} totalPrice={0} cartItemDetails={undefined}> 
-                    Add items to this cart...
+                   <h6 className="md:text-2xl">Add items to this cart...</h6> 
                 </CartModalDefaultBasket>
     }
 
