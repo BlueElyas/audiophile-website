@@ -6,7 +6,7 @@ import { NavBar } from "./NavBar";
 import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
 import { CartModal } from "../../pages/CartModal";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import { useSpecificWindowValues } from "../../hooks/useWindowSize";
 
 
 export function Header( )  {
@@ -21,7 +21,7 @@ export function Header( )  {
         setShowNav(!showNav)
     }
 
-    const windowSize = useWindowSize()
+    const windowSize = useSpecificWindowValues()
     const windowWidth = windowSize.width
 
     

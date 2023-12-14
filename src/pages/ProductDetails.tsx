@@ -4,6 +4,7 @@ import { SeeProductButton } from "../components/reusable-components/SeeProductBu
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
 import { AboutSection } from "../components/reusable-components/AboutSection";
 import { useShoppingCart } from "../context/CartContext";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export function ProductDetails() {
     // This gets the functions from the cart context
@@ -20,11 +21,15 @@ export function ProductDetails() {
 
     // This gets the specific product and its details from the fetchProducDetails function.
     const selectedItem = fetchProductDetails(slug)
+
+    // For responsive design
     
-    if (!selectedItem) {
-        return <div>Item not found</div>
-    }
+    
     const quantity = getItemQuantity(slug!)
+
+    if(!selectedItem) {
+        return
+    }
 
     return (
         <div className="p-6">
@@ -35,7 +40,7 @@ export function ProductDetails() {
             <div key={selectedItem.name} className="grid gap-8">
                 <div className="flex flex-col gap-6">
                     <img 
-                        src={selectedItem.categoryImage.mobile.slice(1)} 
+                        src={useWindowSize(selectedItem.categoryImage)} 
                         alt={selectedItem.name} 
                         className="rounded-lg"    
                     />
@@ -76,9 +81,9 @@ export function ProductDetails() {
             </div>
             
             <div className="grid gap-6 mt-8">
-                <img src={selectedItem.gallery.first.mobile.slice(1)} alt="" className="rounded-lg" />
-                <img src={selectedItem.gallery.second.mobile.slice(1)} alt="" className="rounded-lg" />
-                <img src={selectedItem.gallery.third.mobile.slice(1)} alt="" className="rounded-lg" />
+                <img src={useWindowSize(selectedItem.gallery.first)} alt="" className="rounded-lg" />
+                <img src={useWindowSize(selectedItem.gallery.second)} alt="" className="rounded-lg" />
+                <img src={useWindowSize(selectedItem.gallery.third)} alt="" className="rounded-lg" />
             </div>
 
             <div className="text-center text-3xl font-bold my-24">
@@ -90,7 +95,7 @@ export function ProductDetails() {
                     return(
                         <div className="flex flex-col gap-8 mb-8" key={item.name}>
                             <img 
-                                src={item.image.mobile.slice(1)} 
+                                src={useWindowSize(item.image)} 
                                 alt="" 
                                 className="rounded-lg"    
                             />

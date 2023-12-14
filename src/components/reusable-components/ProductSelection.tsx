@@ -3,18 +3,14 @@ import { SeeProductButton } from "./SeeProductButton"
 import { Link } from "react-router-dom"
 
 export function ProductSelection(data: any[]) {
-    const window = useWindowSize()
-    const width = window.width
+ 
+    
 
    return data.map(data => {
-    if (!width) {
-        return
-    }
-    const image = width >= 768 ?data.categoryImage.tablet : data.categoryImage.mobile
         return(
             <div className="flex flex-col justify-center items-center text-center mx-6 gap-8 my-16" key={data.id}>
                 <img 
-                    src={`${image}`} 
+                    src={useWindowSize(data.categoryImage)} 
                     alt={`picture of ${data.name}`} 
                     className='rounded-lg'
                     />

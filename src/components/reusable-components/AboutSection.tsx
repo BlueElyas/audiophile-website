@@ -1,19 +1,16 @@
 import { useWindowSize } from "../../hooks/useWindowSize"
 
 export function AboutSection() {
-    const window = useWindowSize()
-    const width = window.width
-
-    if(!width) {
-        return
+    const imageObj = {
+        mobile:"/assets/shared/mobile/image-best-gear.jpg",
+        tablet: "/assets/shared/tablet/image-best-gear.jpg",
+        desktop: "/assets/shared/desktop/image-best-gear.jpg"
     }
-
-    const image = width >= 768 ? "/assets/shared/tablet/image-best-gear.jpg" : "/assets/shared/mobile/image-best-gear.jpg" 
 
     return(
         <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28 md:font-bold md:mx-4">
             <img 
-                src={image}
+                src={useWindowSize(imageObj)}
                 alt="picture of a man with headphones looking to the left"
                 className="rounded-lg" />
             <h1 className="text-4xl uppercase ">Bringing you the 

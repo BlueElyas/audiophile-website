@@ -3,19 +3,16 @@ import { SeeProductButton } from "../SeeProductButton";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export function Zx7Speaker() {
-    const window = useWindowSize()
-    const width = window.width
-
-    if(!width) {
-        return
+    const imageObj = {
+        mobile: "./assets/home/mobile/image-speaker-zx7.jpg",
+        tablet: "./assets/home/tablet/image-speaker-zx7.jpg", 
+        desktop: "./assets/home/desktop/image-speaker-zx7.jpg" 
     }
-
-    const image = width >= 768 ? "/assets/home/tablet/image-speaker-zx7.jpg" : "/assets/home/mobile/image-speaker-zx7.jpg"   
 
     return(
         <div className="relative px-6 mt-4 mb-4 flex flex-col">
             <img 
-                src={image}
+                src={useWindowSize(imageObj)}
                 alt=""
                 className="rounded-lg" />
             <div className="absolute top-24 ml-8">

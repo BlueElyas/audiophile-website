@@ -1,24 +1,42 @@
 import { useEffect, useState } from "react"
 
 type WindowSize = {
-    width:  number | undefined 
-    height:  number | undefined 
+    width: number | undefined
 }
 
+export function useWindowSize( imageObj : any ) : any {
+    const [width, setWidth] = useState({width: 200})
 
-export function useWindowSize() : WindowSize {
-    const [windowSise, setWindowSize] = useState<WindowSize>({width: undefined, height: undefined})
     useEffect(() =>{
-
         function handleResize() {
-            setWindowSize({width: window.innerWidth, height: window.innerHeight})
+            setWidth({width: window.innerWidth})
         }
-
         window.addEventListener('resize', handleResize)
-
         handleResize()
 
         return () => window.removeEventListener('resize', handleResize)
     },[])
-    return windowSise
+
+   
+    const tabletOrLaptop = width.width >= 1024 ? imageObj.desktop.slice(1) : imageObj.tablet.slice(1)
+
+    const imageSrc = width.width >= 768 ? tabletOrLaptop : imageObj.mobile.slice(1)
+
+    return imageSrc
+}
+
+export function useSpecificWindowValues()  {
+    const [width, setWidth] = useState<WindowSize>({width: undefined})
+
+    useEffect(() =>{
+        function handleResize() {
+            setWidth({width: window.innerWidth})
+        }
+        window.addEventListener('resize', handleResize)
+        handleResize()
+
+        return () => window.removeEventListener('resize', handleResize)
+    },[])
+
+    return width
 }

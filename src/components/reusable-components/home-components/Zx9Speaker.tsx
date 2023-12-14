@@ -3,14 +3,11 @@ import { SeeProductButton } from "../SeeProductButton";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export function Zx9Speaker() {
-    const window = useWindowSize()
-    const width = window.width
-
-    if (!width) {
-        return 
+       const imageObj = {
+        mobile: "./assets/home/mobile/image-speaker-zx9.png",
+        tablet: "./assets/home/tablet/image-speaker-zx9.png",
+        desktop: "./assets/home/desktop/image-speaker-zx9.png"
     }
-
-    const image = width >= 768 ? "/assets/home/tablet/image-speaker-zx9.png" : "/assets/home/mobile/image-speaker-zx9.png"
     
 
     return(
@@ -22,11 +19,11 @@ export function Zx9Speaker() {
                 md:w-[900px] md:h-[900px] md:-translate-y-8"
                 >
                     <div className="rounded-full border-white border-2 w-56 h-56 md:w-[500px] md:h-[500px] md:flex md:justify-center md:items-center">
-                        {width >= 768 && <div className="rounded-full border-white border-2 w-56 h-56 md:w-[400px] md:h-[400px]"></div>}
+                        {window.innerWidth >= 768 && <div className="rounded-full border-white border-2 w-56 h-56 md:w-[400px] md:h-[400px]"></div>}
                     </div>
                 </div>
                 <img 
-                    src={image}
+                    src={useWindowSize(imageObj)}
                     alt="picture of speakers" 
                     className="absolute w-30 h-40 top-16 left-16 md:bottom-[40%] md:top-auto md:left-96"
                 />

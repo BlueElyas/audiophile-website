@@ -3,17 +3,16 @@ import { SeeProductButton } from "../SeeProductButton";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export function Hero() {
-    const windowSize = useWindowSize()
-    const width = windowSize.width
-
-    if (!width) {
-        return
+    const imageObj = {
+        mobile: "./assets/home/mobile/image-header.jpg",
+        tablet: "./assets/home/tablet/image-header.jpg",
+        desktop: "./assets/home/desktop/image-header.jpg"
     }
 
     return (
         <div className="relative text-white text-center flex flex-col justify-start items-center md:h-[700px]">
             <img 
-                src={width >= 768 ? "/assets/home/tablet/image-header.jpg" : "/assets/home/mobile/image-header.jpg"}
+                src={useWindowSize(imageObj)}
                 alt="picture of black headphones" 
                 className=" w-full md:-translate-y-24 "
             />

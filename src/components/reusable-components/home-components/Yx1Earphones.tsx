@@ -3,20 +3,20 @@ import { SeeProductButton } from "../SeeProductButton";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 
 export function Yx1Earphones() {
-    const window = useWindowSize()
-    const width = window.width
     
-    if(!width) {
-        return
+    const imageObj = {
+        mobile: "./assets/home/mobile/image-earphones-yx1.jpg",
+        tablet: "./assets/home/tablet/image-earphones-yx1.jpg" ,
+        desktop: "./assets/home/deskop/image-earphones-yx1.jpg"
     }
 
-    const image = width >= 768 ? "/assets/home/tablet/image-earphones-yx1.jpg"  : "/assets/home/mobile/image-earphones-yx1.jpg" 
+    // const image = width >= 768 ? "/assets/home/tablet/image-earphones-yx1.jpg"  : "/assets/home/mobile/image-earphones-yx1.jpg" 
 
     return(
         <div className="px-6 md:flex md:justify-center md:items-center md:gap-2">
             <div className="md:flex-1">
                 <img 
-                    src={image} 
+                    src={useWindowSize(imageObj)} 
                     alt="" 
                     className="rounded-lg  md:h-96"
                 />
