@@ -26,8 +26,8 @@ export const mappedProductNavLinks : JSX.Element[] = ProductNavLinks.map((data, 
                     alt={`pictore of a ${data.name}`} 
                     className="w-32 h-28 absolute top-0 -translate-y-1/3"
                     />
-                <h1 className="font-bold tracking-wide text-sm">{data.name}</h1>
-                <p className="mt-3 mb-5 text-sm">Shop <span className="text-red-400">{'>'}</span></p> 
+                <h1 className="font-bold tracking-wide text-sm xl:text-lg">{data.name}</h1>
+                <p className="mt-3 mb-5 text-sm xl:text-lg">Shop <span className="text-red-400">{'>'}</span></p> 
             </NavLink>
         </div>
     )
