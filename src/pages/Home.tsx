@@ -4,8 +4,14 @@ import { Hero } from "../components/reusable-components/home-components/Hero";
 import { Zx9Speaker } from "../components/reusable-components/home-components/Zx9Speaker";
 import { Zx7Speaker } from "../components/reusable-components/home-components/Zx7Speaker";
 import { Yx1Earphones } from "../components/reusable-components/home-components/Yx1Earphones";
+import { useLayoutEffect } from "react";
 
 export function Home() {
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     return(
         <>
             <Hero />

@@ -1,9 +1,16 @@
+import { useLayoutEffect } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize"
 import { SeeProductButton } from "./SeeProductButton"
 import { Link } from "react-router-dom"
 
 export function ProductSelection(data: any[]) {
+
+    
+
    return data.map(data => {
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
     let rowOrRowReverse
     if(data.id % 2 === 0) {
         rowOrRowReverse = 'row'

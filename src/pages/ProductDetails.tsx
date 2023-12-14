@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useLayoutEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
@@ -38,6 +38,10 @@ export function ProductDetails() {
 
     const firstHalf = description.substring(0, splitIndex);
     const secondHalf = description.substring(splitIndex);
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
 
     return (
