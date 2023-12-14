@@ -3,7 +3,7 @@ import { CartIcon } from "../svgs/CartIcon";
 import { Logo } from "../svgs/Logo";
 import { useState } from 'react'
 import { NavBar } from "./NavBar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
 import { CartModal } from "../../pages/CartModal";
 import { useSpecificWindowValues } from "../../hooks/useWindowSize";
@@ -20,6 +20,11 @@ export function Header( )  {
     function handleClick() : void {
         setShowNav(!showNav)
     }
+
+    const location = useLocation()
+    console.log(location)
+
+    const headerOutOfHomePage = location.pathname === '/' ?  'backgroundGray' : 'black' 
 
     const windowSize = useSpecificWindowValues()
     const windowWidth = windowSize.width
@@ -40,8 +45,8 @@ export function Header( )  {
     return windowWidth && (
         <>
             <div 
-                className="bg-[#1A1A1A] text-white flex justify-between px-4 py-7 items-center z-40 relative 
-                            md:px-10 xl:px-36"
+                className={`bg-${headerOutOfHomePage} text-white flex justify-between px-4 py-7 items-center z-50 relative 
+                            md:px-10 xl:px-36`}
             >
 
                 {windowWidth >= 768 ? 
