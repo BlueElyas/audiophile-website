@@ -3,9 +3,6 @@ import { SeeProductButton } from "./SeeProductButton"
 import { Link } from "react-router-dom"
 
 export function ProductSelection(data: any[]) {
- 
-    
-
    return data.map(data => {
         return(
             <div className="flex flex-col justify-center items-center text-center mx-6 gap-8 my-16" key={data.id}>

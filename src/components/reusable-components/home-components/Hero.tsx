@@ -6,17 +6,19 @@ export function Hero() {
     const imageObj = {
         mobile: "./assets/home/mobile/image-header.jpg",
         tablet: "./assets/home/tablet/image-header.jpg",
-        desktop: "./assets/home/desktop/image-header.jpg"
+        desktop: "./assets/home/desktop/image-hero.jpg"
     }
 
     return (
-        <div className="relative text-white text-center flex flex-col justify-start items-center md:h-[700px]">
-            <img 
-                src={useWindowSize(imageObj)}
-                alt="picture of black headphones" 
-                className=" w-full md:-translate-y-24 "
-            />
-            <div className="absolute top-20 uppercase grid gap-8 mx-6 md:w-[376px] md:left-[10rem]">
+        <div className=" text-white text-center flex flex-col justify-start items-center md:h-[700px]">
+            <div className="relative">
+                <img 
+                    src={useWindowSize(imageObj)}
+                    alt="picture of black headphones" 
+                    className=" w-full md:-translate-y-24 "
+                />
+            </div>
+            <div className="absolute top-20 uppercase grid gap-8 mx-6 md:w-[376px] md:left-[8rem] md:top-48">
                 <h4 className=" tracking-[1em] opacity-50 shadow-sm">new product</h4>
                 <h1 className="text-4xl md:text-7xl">XX99 Mark II HeadphoneS</h1>
                 <p className="normal-case opacity-70 shadow-sm md:shadow-lg">Experience natural, lifelike audio and exceptional build quality 
