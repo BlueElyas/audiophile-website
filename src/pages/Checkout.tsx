@@ -44,7 +44,7 @@ export function Checkout() {
     function handleSubmit(e: { preventDefault: () => void }) {
         e.preventDefault()
 
-        const form = formRef.current
+        const form : any = formRef.current
 
         // This is fine, we are expecting form to be invalid as it is null until all form inputs are filled. 
         if(form && form.checkValidity()) {
