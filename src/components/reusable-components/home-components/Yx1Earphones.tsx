@@ -10,8 +10,6 @@ export function Yx1Earphones() {
         desktop: "./assets/home/deskop/image-earphones-yx1.jpg"
     }
 
-    // const image = width >= 768 ? "/assets/home/tablet/image-earphones-yx1.jpg"  : "/assets/home/mobile/image-earphones-yx1.jpg" 
-
     return(
         <div className="px-6 md:flex md:justify-center md:items-center md:gap-2">
             <div className="md:flex-1">

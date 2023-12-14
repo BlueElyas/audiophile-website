@@ -18,7 +18,7 @@ export function useWindowSize( imageObj : any ) : any {
     },[])
 
    
-    const tabletOrLaptop = width.width >= 1440 ? imageObj.desktop.slice(1) : imageObj.tablet.slice(1)
+    const tabletOrLaptop = width.width >= 1280 ? imageObj.desktop.slice(1) : imageObj.tablet.slice(1)
 
     const imageSrc = width.width >= 768 ? tabletOrLaptop : imageObj.mobile.slice(1)
 
