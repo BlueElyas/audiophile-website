@@ -8,7 +8,7 @@ export function AboutSection() {
     }
 
     return(
-        <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28 md:font-bold md:mx-4 xl:flex-row-reverse xl:items-center">
+        <div className="px-6 text-center flex flex-col gap-8 mt-32 mb-28 md:font-bold md:mx-4 xl:flex-row-reverse xl:items-center xl:mx-[10rem]">
             <img 
                 src={useWindowSize(imageObj)}
                 alt="picture of a man with headphones looking to the left"

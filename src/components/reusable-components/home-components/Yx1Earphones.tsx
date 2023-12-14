@@ -11,7 +11,7 @@ export function Yx1Earphones() {
     }
 
     return(
-        <div className="px-6 md:flex md:justify-center md:items-center md:gap-2 xl:gap-12">
+        <div className="px-6 md:flex md:justify-center md:items-center md:gap-2 xl:gap-12 xl:mx-[10rem]">
             <div className="md:flex-1 ">
                 <img 
                     src={useWindowSize(imageObj)} 

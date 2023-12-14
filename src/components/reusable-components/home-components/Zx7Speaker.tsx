@@ -10,7 +10,7 @@ export function Zx7Speaker() {
     }
 
     return(
-        <div className="relative px-6 mt-4 mb-4 flex flex-col">
+        <div className="relative px-6 mt-4 mb-4 flex flex-col xl:mx-[10rem]">
             <img 
                 src={useWindowSize(imageObj)}
                 alt=""
