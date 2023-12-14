@@ -55,134 +55,144 @@ export function Checkout() {
     return(
         <>                
         {showModal && <CheckoutModal totalPrice={totalPrice} checkoutProducts={checkoutProducts} clearCart={clearCart}/>}
-            <div className="m-4 ">                
+            <div className="xl:bg-gray-100 xl:py-8 xl:relative">
+
                 <button 
                     type="button" 
                     onClick={() => navigate(-1)} 
-                    className="mb-8 opacity-60 capitalize">Go back
+                    className="mb-8 opacity-60 capitalize mx-14 xl:text-2xl xl:mb-0">Go back
                 </button>
-                <form className="my-2 mx-8 flex flex-col" onSubmit={handleSubmit} ref={formRef}>
-                    <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
 
-                    <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
-                    <div className="md:grid md:grid-cols-2 md:gap-4">
-                        <CheckoutInput 
-                            type='text' 
-                            placeholder="Alexei Ward" 
-                            maxLength={16} 
-                            name="Name" 
-                            id="name"  
-                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
-                        />
-                        <CheckoutInput 
-                            type='email' 
-                            placeholder="alexei@gmail.com" 
-                            maxLength={50} 
-                            name="Email Address" 
-                            id="email" 
-                            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" 
-                        />
-                        <CheckoutInput 
-                            type='text' 
-                            placeholder="+1 202-555-0136" 
-                            maxLength={16} 
-                            name="Phone Number" 
-                            id="phone number" 
-                            pattern="^[0-9\W_]+$"
-                        />
-                    </div>
+                <div className="m-4 xl:m-16 xl:bg-white xl:mr-[32rem] xl:py-8">                
+                    
+                    <form className="my-2 mx-8 flex flex-col" onSubmit={handleSubmit} ref={formRef}>
+                        <div>
+                                <h1 className="text-2xl font-bold mb-8">CHECKOUT</h1>
 
-                    <StyledCheckoutComponent>shipping info</StyledCheckoutComponent>
-                    <div className="md:grid md:grid-cols-2 md:gap-4">
-                        <div className="md:col-span-2">
-                            <CheckoutInput 
-                                type='text' 
-                                placeholder="1137 Williams Avenue" 
-                                maxLength={30} 
-                                name="Your Address" 
-                                id="address" 
-                                pattern="^[a-zA-Z0-9_. -]*$" 
-                            />
+                                <StyledCheckoutComponent>billing details</StyledCheckoutComponent>
+                                <div className="md:grid md:grid-cols-2 md:gap-4">
+                                    <CheckoutInput 
+                                        type='text' 
+                                        placeholder="Alexei Ward" 
+                                        maxLength={16} 
+                                        name="Name" 
+                                        id="name"  
+                                        pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
+                                    />
+                                    <CheckoutInput 
+                                        type='email' 
+                                        placeholder="alexei@gmail.com" 
+                                        maxLength={50} 
+                                        name="Email Address" 
+                                        id="email" 
+                                        pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" 
+                                    />
+                                    <CheckoutInput 
+                                        type='text' 
+                                        placeholder="+1 202-555-0136" 
+                                        maxLength={16} 
+                                        name="Phone Number" 
+                                        id="phone number" 
+                                        pattern="^[0-9\W_]+$"
+                                    />
+                                </div>
+
+                                <StyledCheckoutComponent>shipping info</StyledCheckoutComponent>
+                                <div className="md:grid md:grid-cols-2 md:gap-4">
+                                    <div className="md:col-span-2">
+                                        <CheckoutInput 
+                                            type='text' 
+                                            placeholder="1137 Williams Avenue" 
+                                            maxLength={30} 
+                                            name="Your Address" 
+                                            id="address" 
+                                            pattern="^[a-zA-Z0-9_. -]*$" 
+                                        />
+                                        </div>
+                                    <CheckoutInput 
+                                        type='text' 
+                                        placeholder="10001" 
+                                        maxLength={10} 
+                                        name="ZIP Code/Post Code" 
+                                        id="zip code" 
+                                        pattern="^[a-zA-Z0-9_. -]*$" 
+                                    />
+                                    <CheckoutInput 
+                                        type='text' 
+                                        placeholder="New York" 
+                                        maxLength={20} 
+                                        name="City" 
+                                        id="city" 
+                                        pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" 
+                                    />
+                                    <CheckoutInput 
+                                        type='text' 
+                                        placeholder="United States" 
+                                        maxLength={20} 
+                                        name="Country" 
+                                        id="country" 
+                                        pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
+                                    /> 
+                                </div>
+
+                                <StyledCheckoutComponent>payment details</StyledCheckoutComponent>
+                                <div className="md:grid md:grid-cols-2">
+                                    <h5 className="font-bold text-sm block mt-6 mb-4">Payment Method</h5>
+                                    <CheckoutRadioInput 
+                                        name='e-Money' 
+                                        selectedOption={selectedOption} 
+                                        handleChange={handleChange}
+                                    />
+                                    <div></div>
+                                    <CheckoutRadioInput 
+                                        name='Cash on Delivery' 
+                                        selectedOption={selectedOption} 
+                                        handleChange={handleChange}
+                                    />
+                                </div>
+
+                                {selectedOption === 'e-Money' ? 
+                                <div className="md:flex md:gap-4">
+                                    <div className="md:flex-1">
+                                        <CheckoutInput 
+                                            type="text" 
+                                            placeholder="2384219738" 
+                                            maxLength={10} 
+                                            name="e-Money Number" 
+                                            id="e-money-number" 
+                                            pattern="^[0-9]{10}$" 
+                                        /> 
+                                    </div>
+                                    <div className="md:flex-1">
+                                        <CheckoutInput 
+                                            type="text" 
+                                            placeholder="6969" 
+                                            maxLength={4} 
+                                            name="e-Money Pin" 
+                                            id="e-money-pin" 
+                                            pattern="^[0-9]{4}$" 
+                                        /> 
+                                    </div>
+                                </div>
+                            : ''}
+
+
+                            <div className="xl:absolute xl:right-24 xl:top-[9.5rem] xl:bg-white xl:px-8 xl:flex xl:flex-col">
+                                <h1 className="uppercase tracking-widest font-bold mt-8 md:text-xl">Summary</h1>
+                                {CheckoutProductItemSummary(checkoutProducts)}
+
+                                <CheckOutPriceSummary totalPrice={totalPrice}/>
+
+                                <button 
+                                    type="submit" 
+                                    className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold xl:mb-8"
+                                >
+                                        Continue&pay
+                                </button>
                             </div>
-                        <CheckoutInput 
-                            type='text' 
-                            placeholder="10001" 
-                            maxLength={10} 
-                            name="ZIP Code/Post Code" 
-                            id="zip code" 
-                            pattern="^[a-zA-Z0-9_. -]*$" 
-                        />
-                        <CheckoutInput 
-                            type='text' 
-                            placeholder="New York" 
-                            maxLength={20} 
-                            name="City" 
-                            id="city" 
-                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$" 
-                        />
-                        <CheckoutInput 
-                            type='text' 
-                            placeholder="United States" 
-                            maxLength={20} 
-                            name="Country" 
-                            id="country" 
-                            pattern="^[a-zA-Z]+(?: [a-zA-Z]+)*$"
-                        /> 
-                    </div>
-
-                    <StyledCheckoutComponent>payment details</StyledCheckoutComponent>
-                    <div className="md:grid md:grid-cols-2">
-                        <h5 className="font-bold text-sm block mt-6 mb-4">Payment Method</h5>
-                        <CheckoutRadioInput 
-                            name='e-Money' 
-                            selectedOption={selectedOption} 
-                            handleChange={handleChange}
-                        />
-                        <div></div>
-                        <CheckoutRadioInput 
-                            name='Cash on Delivery' 
-                            selectedOption={selectedOption} 
-                            handleChange={handleChange}
-                        />
-                    </div>
-
-                    {selectedOption === 'e-Money' ? 
-                    <div className="md:flex md:gap-4">
-                        <div className="md:flex-1">
-                            <CheckoutInput 
-                                type="text" 
-                                placeholder="2384219738" 
-                                maxLength={10} 
-                                name="e-Money Number" 
-                                id="e-money-number" 
-                                pattern="^[0-9]{10}$" 
-                            /> 
                         </div>
-                        <div className="md:flex-1">
-                            <CheckoutInput 
-                                type="text" 
-                                placeholder="6969" 
-                                maxLength={4} 
-                                name="e-Money Pin" 
-                                id="e-money-pin" 
-                                pattern="^[0-9]{4}$" 
-                            /> 
-                        </div>
-                    </div>
-                    : ''}
-
-                    <h1 className="uppercase tracking-widest font-bold mt-8 md:text-xl">Summary</h1>
-                    {CheckoutProductItemSummary(checkoutProducts)}
-
-                    <CheckOutPriceSummary totalPrice={totalPrice}/>
-
-                    <button 
-                        type="submit" 
-                        className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold"
-                    >
-                            Continue&pay
-                    </button>
-                </form>
+                    </form>
+                </div>
             </div>
         </>
     )
