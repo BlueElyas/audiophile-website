@@ -27,8 +27,8 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                 rounded-lg w-[92%] flex flex-col gap-8 border-2
                 md:right-10 md:left-auto md:w-1/2 md:h-max md:top-28 md:justify-between"
                 >
-                <div className="flex justify-between ">
-                    <h1 className="font-bold">CART ({lengthOfCart})</h1>
+                <div className="flex justify-between xl:text-2xl">
+                    <h1 className="font-bold ">CART ({lengthOfCart})</h1>
                     <button 
                         className="underline opacity-50"
                         onClick={clearCart}
@@ -36,7 +36,7 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                 </div>
 
                 {children}
-                <div className="">
+                <div className="xl:text-2xl">
                     <div className="flex justify-between mb-6">
                         <h5>TOTAL</h5>
                         <h3 className="font-bold">${totalPrice?.toLocaleString()}</h3>
@@ -44,11 +44,11 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
 
                     <div 
                         className="bg-[#D87D4A] text-white py-4 rounded-sm disabled:cursor-not-allowed text-center
-                                    md:justify-self-end"
+                                    md:justify-self-end xl:text-3xl"
                     >                                
                         {
                             totalPrice === 0 ? 
-                            <NavLink to="/" onClick={handleModalDisplay}> Add items to this cart...</NavLink> : 
+                            <NavLink  to="/" onClick={handleModalDisplay}> Add items to this cart...</NavLink> : 
                             <NavLink onClick={handleModalDisplay} to='/checkout' state={{cartItemDetails, totalPrice}}>CHECKOUT </NavLink>
                         }
                     </div>
