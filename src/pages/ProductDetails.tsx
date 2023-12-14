@@ -76,7 +76,7 @@ export function ProductDetails() {
                         </div>
                     </div>
 
-                    <div className="xl:grid xl:grid-cols-2 xl:gap-16">
+                    <div className="xl:grid xl:grid-cols-2 xl:gap-16 xl:mt-16">
                         <div className="md:mb-16 xl:text-lg">
                             <h5 className="font-bold text-2xl mb-4 xl:text-4xl xl:mb-7">FEATURES</h5>
                             <p className="opacity-70">{firstHalf}</p>
