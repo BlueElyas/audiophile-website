@@ -31,7 +31,7 @@ export function ProductSelection(data: any[]) {
                         className='rounded-lg'
                         />
                 </div>
-                <div className="xl:flex xl:flex-col xl:gap-6 xl:items-start xl:justify-center xl:text-start xl:flex-1">
+                <div className="flex flex-col gap-6 xl:items-start xl:justify-center xl:text-start xl:flex-1">
                     {data.new && <p className='uppercase tracking-[0.8rem] text-red-600'>New product</p>}
                     <h1 className='text-4xl font-bold uppercase lg:text-5xl'>{data.name}</h1>
                     <p className="">{data.description}</p>
