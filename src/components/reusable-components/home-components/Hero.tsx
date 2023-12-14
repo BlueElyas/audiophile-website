@@ -10,15 +10,15 @@ export function Hero() {
     }
 
     return (
-        <div className=" text-white text-center flex flex-col justify-start items-center md:h-[700px]">
-            <div className="relative">
+        <div className=" text-white text-center flex flex-col justify-start items-center md:h-[700px] bg-[#1A1A1A]">
+            <div className="relative -translate-y-20">
                 <img 
                     src={useWindowSize(imageObj)}
                     alt="picture of black headphones" 
-                    className=" w-full md:-translate-y-24 "
+                    className=" w-full "
                 />
             </div>
-            <div className="absolute top-20 uppercase grid gap-8 mx-6 md:w-[376px] md:left-[8rem] md:top-48">
+            <div className="absolute top-44 left-4 uppercase grid gap-6 mx-6 md:w-[376px] md:left-[8rem] md:top-48">
                 <h4 className=" tracking-[1em] opacity-50 shadow-sm">new product</h4>
                 <h1 className="text-4xl md:text-7xl">XX99 Mark II HeadphoneS</h1>
                 <p className="normal-case opacity-70 shadow-sm md:shadow-lg">Experience natural, lifelike audio and exceptional build quality 

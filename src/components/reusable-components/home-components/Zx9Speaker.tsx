@@ -13,7 +13,7 @@ export function Zx9Speaker() {
     return(
         <div className="bg-[#D87D4A] text-white text-center h-[600px] 
             flex flex-col mx-6 rounded-lg items-center justify-end gap-6 px-4
-            py-4 md:relative">
+            py-4 md:relative overflow-hidden">
             <div className="relative md:absolute overflow-hidden z-30">
                 <div className="rounded-full border-white border-2 w-64 h-64 opacity-10 flex justify-center items-center 
                 md:w-[900px] md:h-[900px] md:-translate-y-8"
