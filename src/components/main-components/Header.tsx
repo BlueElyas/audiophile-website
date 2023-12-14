@@ -46,7 +46,7 @@ export function Header( )  {
         <>
             <div 
                 className={`bg-${headerOutOfHomePage} text-white flex justify-between px-4 py-7 items-center z-50 relative 
-                            md:px-10 xl:px-36`}
+                            md:px-10 xl:px-36 `}
             >
 
                 {windowWidth >= 768 ? 

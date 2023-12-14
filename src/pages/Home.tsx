@@ -9,8 +9,7 @@ export function Home() {
     return(
         <>
             <Hero />
-            <div className="md:my-32 lg:block lg:my-[19rem] xl:my-0"></div>
-
+            <div className="md:my-32 lg:block lg:my-[19rem] xl:my-0 2xl:mb-64"></div>
             <div className="md:flex md:justify-around xl:mb-20 xl:mx-[10rem]">
                 {mappedProductNavLinks}
             </div>
