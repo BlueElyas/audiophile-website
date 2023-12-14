@@ -2,9 +2,9 @@ import { useWindowSize } from "../../hooks/useWindowSize"
 
 export function AboutSection() {
     const imageObj = {
-        mobile:"/assets/shared/mobile/image-best-gear.jpg",
-        tablet: "/assets/shared/tablet/image-best-gear.jpg",
-        desktop: "/assets/shared/desktop/image-best-gear.jpg"
+        mobile:"./assets/shared/mobile/image-best-gear.jpg",
+        tablet: "./assets/shared/tablet/image-best-gear.jpg",
+        desktop: "./assets/shared/desktop/image-best-gear.jpg"
     }
 
     return(
@@ -13,7 +13,7 @@ export function AboutSection() {
                 src={useWindowSize(imageObj)}
                 alt="picture of a man with headphones looking to the left"
                 className="rounded-lg" />
-            <h1 className="text-4xl uppercase ">Bringing you the 
+            <h1 className="text-4xl uppercase md:my-4">Bringing you the 
                 <span className="text-[#D87D4A]"> best</span> audio gear
             </h1>
             <p className="opacity-60 md:font-normal md:text-lg">Located at the heart of New York City, Audiophile is the premier store for 
