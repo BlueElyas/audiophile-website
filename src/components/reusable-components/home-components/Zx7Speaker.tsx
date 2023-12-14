@@ -15,8 +15,8 @@ export function Zx7Speaker() {
                 src={useWindowSize(imageObj)}
                 alt=""
                 className="rounded-lg" />
-            <div className="absolute top-24 ml-8">
-                <h1 className="font-bold text-3xl mb-6">ZX7 SPEAKER</h1>
+            <div className="absolute top-24 ml-8 xl:ml-24 ">
+                <h1 className="font-bold text-3xl mb-6 xl:text-4xl xl:mb-12">ZX7 SPEAKER</h1>
                 <NavLink to="speakers/zx7-speaker"><SeeProductButton style="border-black border-[1px] font-bold"/></NavLink>
             </div>
         </div>

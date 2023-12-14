@@ -15,7 +15,7 @@ export function Zx9Speaker() {
 
     return(
         <div className="bg-[#D87D4A] text-white text-center h-[600px] 
-            flex flex-col mx-6 rounded-lg items-center gap-6 px-4
+            flex flex-col mx-6 rounded-lg items-center justify-end gap-6 px-4
             py-4 md:relative overflow-hidden xl:justify-center xl:items-end">
             <div className="relative md:absolute overflow-hidden z-30 xl:static">
                 {window.innerWidth >= 1280 ? '' : <div className="rounded-full border-white border-2 w-64 h-64 opacity-10 flex justify-center items-center 
