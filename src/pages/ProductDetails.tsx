@@ -61,10 +61,10 @@ export function ProductDetails() {
                             />
                         </div>
                         <div className="md:flex md:flex-col md:gap-8 md:items-start">
-                            <p className="uppercase text-red-600 tracking-[0.8em] xl:mt-16">new product</p>
+                            <p className="uppercase text-red-600 tracking-[0.8em] xl:mt-16 py-4">new product</p>
                             <h1 className="font-bold uppercase text-4xl">{selectedItem.name}</h1>
-                            <p className="opacity-50 xl:text-xl">{selectedItem.description}</p>
-                            <h4 className="tracking-wider font-bold xl:text-2xl">$ {selectedItem.price.toLocaleString()}</h4>
+                            <p className="opacity-50 xl:text-xl py-4">{selectedItem.description}</p>
+                            <h4 className="tracking-wider font-bold xl:text-2xl py-4">$ {selectedItem.price.toLocaleString()}</h4>
                             <div className="flex items-center justify-around md:gap-8">
                                 <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
                                     <button onClick={() => decreaseCartQuantity(slug!) }>-</button>
