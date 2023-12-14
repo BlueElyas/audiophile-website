@@ -88,7 +88,7 @@ export function ProductDetails() {
                             <p className="opacity-70">{secondHalf}</p>
                         </div>
 
-                        <div className="md:flex md:justify-between md:mr-40 md:mb-16 xl:flex-col xl:justify-normal" >
+                        <div className="md:flex md:justify-between md:mr-40 md:mb-16 xl:flex-col xl:justify-normal mt-6" >
                             <h5 className="font-bold text-2xl mb-6 md:text-3xl">IN THE BOX</h5>
                             <div>
                                 {selectedItem.includes.map((item: { 
