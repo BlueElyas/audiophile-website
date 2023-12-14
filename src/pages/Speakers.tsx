@@ -7,10 +7,10 @@ export function Speakers() {
     const speakersData = data.filter(data => data.category === 'speakers')
     return(
         <>
-            <h1 className='bg-black text-white text-center py-8 uppercase text-3xl font-bold'>speakers</h1>
+            <h1 className='bg-black text-white text-center py-8 uppercase text-3xl font-bold xl:text-4xl xl:py-12'>speakers</h1>
             {ProductSelection(speakersData)}
 
-            <div className="md:flex md:justify-around ">
+            <div className="md:flex md:justify-around xl:mx-[10rem]">
                 {mappedProductNavLinks}
             </div>
             <AboutSection/>

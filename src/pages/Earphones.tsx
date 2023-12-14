@@ -7,10 +7,10 @@ export function Earphones() {
     const earphoneData = data.filter(data => data.category === 'earphones')
     return(
         <>
-            <h1 className='bg-black text-white text-center py-8 uppercase text-3xl font-bold'>earphones</h1>
+            <h1 className='bg-black text-white text-center py-8 uppercase text-3xl font-bold xl:text-4xl xl:py-12'>earphones</h1>
             {ProductSelection(earphoneData)}
 
-            <div className="md:flex md:justify-around ">
+            <div className="md:flex md:justify-around xl:mx-[10rem]">
                 {mappedProductNavLinks}
             </div>
 
