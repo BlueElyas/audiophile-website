@@ -5,6 +5,7 @@ type NavBarProps = {
     isNavOpen: boolean
     click: () => void
     setNav: Dispatch<SetStateAction<boolean>>
+
 }
 
 export function NavBar( {isNavOpen, click, setNav } : NavBarProps ) {

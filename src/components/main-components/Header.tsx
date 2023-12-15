@@ -21,6 +21,7 @@ export function Header( )  {
 
     function handleClick() : void {
         setShowNav(!showNav)
+        setNavOpen(!isNavOpen)
     }
 
     const location = useLocation()
