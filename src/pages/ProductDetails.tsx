@@ -107,7 +107,7 @@ export function ProductDetails() {
                         <img src={useWindowSize(selectedItem.gallery.first)} alt="" className="rounded-lg mb-4 md:mb-12" />
                         <img src={useWindowSize(selectedItem.gallery.second)} alt="" className="rounded-lg" />
                     </div>
-                    <div className="md:col-span-3">
+                    <div className="md:col-span-3 md:self-stretch">
                         <img src={useWindowSize(selectedItem.gallery.third)} alt="" className="rounded-lg" />
                     </div>
                 </div>
@@ -137,7 +137,7 @@ export function ProductDetails() {
                     </div>
                 </div>
 
-                <div className="flex">
+                <div className="flex flex-col md:flex">
                     {mappedProductNavLinks}
                 </div>
                 
