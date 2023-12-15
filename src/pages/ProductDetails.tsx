@@ -67,7 +67,7 @@ export function ProductDetails() {
                             <div className="flex items-center justify-center gap-2 md:gap-8">
                                 <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
                                     <button className="hover:scale-150 hover:font-bold" onClick={() => decreaseCartQuantity(slug!) }>-</button>
-                                    <p className="select-none">{quantity >= 0 ? quantity : 0}</p> 
+                                    <p className="select-none">{quantity >= 0 ? quantity : 1}</p> 
                                     <button className="hover:scale-150 hover:font-bold" onClick={() => increaseCartQuantity(slug!) }>+</button>
                                 </div>
                                 <div className="flex-1">
