@@ -137,7 +137,7 @@ export function ProductDetails() {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex">
+                <div className="flex flex-col md:flex-row">
                     {mappedProductNavLinks}
                 </div>
                 
