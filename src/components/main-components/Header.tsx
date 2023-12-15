@@ -16,7 +16,8 @@ export function Header( )  {
 
     const {
         handleModalDisplay,
-        modalDisplay
+        modalDisplay,
+        cartModalItems
     } = useShoppingCart()
 
     function handleClick() : void {
@@ -50,28 +51,35 @@ export function Header( )  {
                             md:px-10 xl:px-36 `}
             >
 
-                {windowWidth >= 768 ? 
-                <div className="md:flex md:items-center md:gap-8">
-                    {desktopWidth}
 
-                    <NavLink to="/" className="md:justify-self-start md:col-span-8">
-                        <Logo/>
-                    </NavLink>
-                </div> :
-                <>
-                    <div onClick={handleClick}>
-                        <HamburgerIcon/>
-                    </div> 
 
-                    <NavLink to="/" className="md:justify-self-start md:col-span-8">
-                        <Logo/>
-                    </NavLink>
-                </>}
+                {
+                    windowWidth >= 768 ? 
+                        <div className="md:flex md:items-center md:gap-8">
+                            {desktopWidth}
+
+                            <NavLink to="/" className="md:justify-self-start md:col-span-8">
+                                <Logo/>
+                            </NavLink>
+                        </div> :
+                        <>
+                            <div onClick={handleClick}>
+                                <HamburgerIcon/>
+                            </div> 
+
+                            <NavLink to="/" className="md:justify-self-start md:col-span-8">
+                                <Logo/>
+                            </NavLink>
+                        </>
+                }
 
                 {desktopNavbar}
 
-                <div onClick={handleModalDisplay} className="m-0 p-0 md:justify-self-end">
-                    <CartIcon/>   
+                <div onClick={handleModalDisplay} className="m-0 p-0 ">  
+                    <div className="relative z-10"><CartIcon/></div>  
+                    <div className="absolute bg-[#D87D4A] rounded-full w-6 flex justify-center items-center bottom-3 z-0 right-5 xl:right-32">
+                        {cartModalItems.length}
+                    </div> 
                 </div>
             </div>
             
