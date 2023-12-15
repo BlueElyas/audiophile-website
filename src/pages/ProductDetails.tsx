@@ -73,7 +73,7 @@ export function ProductDetails() {
                                 <div className="flex-1">
                                     <button 
                                         onClick={addToCart}
-                                        className="py-4 px-6 bg-[#D87D4A] text-white xl:px-10 md:py-4">
+                                        className="py-4 px-6 bg-[#D87D4A] text-white xl:px-10 md:py-4 hover:scale-110 hover:opacity-60">
                                             ADD TO CART
                                     </button>
                                 </div>
