@@ -11,7 +11,8 @@ import { Backdrop } from "../reusable-components/Backdrop";
 
 
 export function Header( )  {
-    const [showNav, setShowNav] = useState(false)
+    const [showNav, setShowNav] = useState<boolean>(false)
+    const [isNavOpen, setNavOpen] = useState<boolean>(true)
 
     const {
         handleModalDisplay,
@@ -74,7 +75,7 @@ export function Header( )  {
             </div>
             
             <div>
-                {showNav && <><Backdrop onClick={handleClick}/> <NavBar/> </> }
+                {showNav && <><Backdrop onClick={handleClick}/> <NavBar click={handleClick} isNavOpen={isNavOpen} setNav={setNavOpen} /> </> }
             </div>
               
             {/* This div is to display that gray underline in the header */}
