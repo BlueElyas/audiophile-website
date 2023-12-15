@@ -7,13 +7,14 @@ import { Home } from "./pages/Home"
 import { ProductDetails } from "./pages/ProductDetails"
 import { ShoppingCartProvider } from "./context/CartContext"
 import { Checkout } from "./pages/Checkout"
-
+import { ScrollToTop } from "./components/main-components/ScrollToTop"
 
 
 function App() {
   return (
     <>
-    <ShoppingCartProvider>   
+    <ShoppingCartProvider>
+      <ScrollToTop />  
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<Home/>}/>
