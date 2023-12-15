@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react"
 import { NavLink } from "react-router-dom"
 
 const ProductNavLinks :  {name: string, image: string}[] = [
@@ -35,12 +34,9 @@ export const mappedProductNavLinks : JSX.Element[] = ProductNavLinks.map((data, 
     )
 })
 
-export function navLinks( handleClick : () => void, click: Dispatch<SetStateAction<boolean>> ) {
+export function navLinks( handleClick : () => void ) {
 
-    function navLinkClick() {
-        handleClick()
-        click(false)
-    }
+ 
 
 
     return ProductNavLinks.map((data, index) => {
@@ -48,7 +44,7 @@ export function navLinks( handleClick : () => void, click: Dispatch<SetStateActi
             <div className="flex gap-8 uppercase flex-col my-4 mt-16 md:w-64 flex-auto mx-6" key={index}>
                 <NavLink 
                     to={`/${data.name}`} 
-                    onClick={navLinkClick}
+                    onClick={handleClick}
                     className="bg-gray-200 bg-opacity-60 rounded-lg relative h-40 flex flex-col justify-end items-center">
                     <img 
                         src={data.image}

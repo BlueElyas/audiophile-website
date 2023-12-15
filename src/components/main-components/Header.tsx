@@ -12,7 +12,7 @@ import { Backdrop } from "../reusable-components/Backdrop";
 
 export function Header( )  {
     const [showNav, setShowNav] = useState<boolean>(false)
-    const [isNavOpen, setNavOpen] = useState<boolean>(true)
+    const [isNavOpen, setNavOpen] = useState<boolean>(false)
 
     const {
         handleModalDisplay,
@@ -26,7 +26,6 @@ export function Header( )  {
     }
 
     const location = useLocation()
-    console.log(location)
 
     const windowSize = useSpecificWindowValues()
     const windowWidth = windowSize.width
@@ -47,11 +46,10 @@ export function Header( )  {
     return windowWidth && (
         <>
             <div 
-                className={`${location.pathname === '/' ?  'bg-[#1A1A1A]' : 'bg-black' } text-white flex justify-between px-4 py-7 items-center z-50 relative 
-                            md:px-10 xl:px-36 `}
+                className={`${location.pathname === '/' ?  'bg-[#1A1A1A]' : 'bg-black' } 
+                        text-white flex justify-between px-4 py-7 items-center z-50 relative 
+                            md:px-10 xl:px-36`}
             >
-
-
 
                 {
                     windowWidth >= 768 ? 
@@ -63,7 +61,7 @@ export function Header( )  {
                             </NavLink>
                         </div> :
                         <>
-                            <div onClick={handleClick}>
+                            <div onClick={handleClick} >
                                 <HamburgerIcon/>
                             </div> 
 
@@ -84,7 +82,7 @@ export function Header( )  {
             </div>
             
             <div>
-                {showNav && <><Backdrop onClick={handleClick}/> <NavBar click={handleClick} isNavOpen={isNavOpen} setNav={setNavOpen} /> </> }
+                {showNav && <><Backdrop onClick={handleClick}/> <NavBar click={handleClick} isNavOpen={isNavOpen}/> </> }
             </div>
               
             {/* This div is to display that gray underline in the header */}
