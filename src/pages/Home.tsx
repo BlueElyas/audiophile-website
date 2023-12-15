@@ -6,14 +6,14 @@ import { Zx7Speaker } from "../components/reusable-components/home-components/Zx
 import { Yx1Earphones } from "../components/reusable-components/home-components/Yx1Earphones";
 
 export function Home() {
-
+    
 
     return(
         <>
             <div className="xl:flex xl:flex-col gap-10">
                 
                 <Hero />
-                <div className="md:my-32 lg:block lg:my-[19rem] xl:my-0 2xl:mb-64"></div>
+                <div className="md:my-32 lg:block lg:my-[19rem] xl:my-0 2xl:mb-0 xl:m-0"></div>
                 <div className="md:flex md:justify-around xl:mb-20 xl:mx-[10rem]">
                     {mappedProductNavLinks}
                 </div>
