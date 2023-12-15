@@ -1,7 +1,6 @@
 import { ReactNode } from "react"
 import { useShoppingCart } from "../../context/CartContext"
 import { NavLink } from "react-router-dom"
-import { Backdrop } from "./Backdrop"
 
 type CartModalDefaultBasketProps = {
     totalPrice: number 
@@ -21,7 +20,6 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
 
     return(
         <>
-            <Backdrop onClick={() => {}} />
             <div 
                 className="fixed z-50 top-20 left-4 bg-white p-8 shadow-lg] 
                 rounded-lg w-[92%] flex flex-col gap-8 border-2

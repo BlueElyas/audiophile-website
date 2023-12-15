@@ -7,6 +7,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useShoppingCart } from "../../context/CartContext";
 import { CartModal } from "../../pages/CartModal";
 import { useSpecificWindowValues } from "../../hooks/useWindowSize";
+import { Backdrop } from "../reusable-components/Backdrop";
 
 
 export function Header( )  {
@@ -73,7 +74,7 @@ export function Header( )  {
             </div>
             
             <div>
-                {showNav && <NavBar/>}
+                {showNav && <><Backdrop onClick={handleClick}/> <NavBar/> </> }
             </div>
               
             {/* This div is to display that gray underline in the header */}
@@ -81,7 +82,7 @@ export function Header( )  {
                 <div className="bg-gray-600 h-[2px] w-[90%] opacity-30"></div>
             </div>
 
-            {modalDisplay && <CartModal />}
+            {modalDisplay && <><Backdrop onClick={handleModalDisplay}/><CartModal /></>}
         </>
     )
 }
