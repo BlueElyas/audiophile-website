@@ -64,17 +64,19 @@ export function ProductDetails() {
                             <h1 className="font-bold uppercase text-4xl">{selectedItem.name}</h1>
                             <p className="opacity-50 xl:text-xl py-4">{selectedItem.description}</p>
                             <h4 className="tracking-wider font-bold xl:text-2xl py-4">$ {selectedItem.price.toLocaleString()}</h4>
-                            <div className="flex items-center justify-around md:gap-8">
+                            <div className="flex items-center justify-center gap-2 md:gap-8">
                                 <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
                                     <button onClick={() => decreaseCartQuantity(slug!) }>-</button>
                                     <p>{quantity >= 0 ? quantity : 0}</p> 
                                     <button onClick={() => increaseCartQuantity(slug!) }>+</button>
                                 </div>
-                                <button 
-                                    onClick={addToCart}
-                                    className="py-4 px-6 bg-[#D87D4A] text-white xl:px-10">
-                                        ADD TO CART
-                                </button>
+                                <div className="flex-1">
+                                    <button 
+                                        onClick={addToCart}
+                                        className="py-4 px-6 bg-[#D87D4A] text-white xl:px-10 md:py-4">
+                                            ADD TO CART
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
