@@ -10,7 +10,7 @@ export function CheckoutRadioInput( {name, selectedOption, handleChange}: Checko
 
     
     return(
-        <div className={`flex gap-8 p-2 pl-4 rounded-lg  border-2 mb-4 ${selectedOption === name ? 'border-[#D87D4A]' : ''}`}>
+        <div className={`flex gap-8 p-2 pl-4 rounded-lg  border-2 mb-4 cursor-pointer ${selectedOption === name ? 'border-[#D87D4A]' : ''}`}>
             <input 
                 type="radio" 
                 className={`border-4 ${selectedOption === name ? 'accent-[#D87D4A]' : ''}`}
@@ -20,7 +20,7 @@ export function CheckoutRadioInput( {name, selectedOption, handleChange}: Checko
                 checked={selectedOption === name}
                 onChange={handleChange}
             />
-            <label htmlFor={name} className="font-bold">{name}</label>
+            <label htmlFor={name} className="font-bold cursor-pointer">{name}</label>
         </div>
     )
 }

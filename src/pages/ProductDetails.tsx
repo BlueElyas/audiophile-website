@@ -46,7 +46,7 @@ export function ProductDetails() {
     return (
         <>
             <div className="p-6 xl:mx-[10rem]">
-                <button onClick={() => navigate(`/${selectedItem.category}`)} className="mb-8 opacity-60 capitalize">
+                <button onClick={() => navigate(`/${selectedItem.category}`)} className="mb-8 opacity-60 capitalize font-bold cursor-pointer hover:text-[#d87d4a]">
                     Go back
                 </button>
 
@@ -66,9 +66,9 @@ export function ProductDetails() {
                             <h4 className="tracking-wider font-bold xl:text-2xl py-4">$ {selectedItem.price.toLocaleString()}</h4>
                             <div className="flex items-center justify-center gap-2 md:gap-8">
                                 <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
-                                    <button onClick={() => decreaseCartQuantity(slug!) }>-</button>
-                                    <p>{quantity >= 0 ? quantity : 0}</p> 
-                                    <button onClick={() => increaseCartQuantity(slug!) }>+</button>
+                                    <button className="hover:scale-150 hover:font-bold" onClick={() => decreaseCartQuantity(slug!) }>-</button>
+                                    <p className="select-none">{quantity >= 0 ? quantity : 0}</p> 
+                                    <button className="hover:scale-150 hover:font-bold" onClick={() => increaseCartQuantity(slug!) }>+</button>
                                 </div>
                                 <div className="flex-1">
                                     <button 

@@ -28,8 +28,8 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
 
     return(
         <>
-            <div className="px-6 py-8 m-4bg-white rounded-lg flex flex-col fixed shadow-lg border-2 m-4 bg-white z-50
-                            md:top-1 md:left-16 xl:top-64 xl:left-96"
+            <div className="px-6 py-8 m-4bg-white rounded-lg flex flex-col fixed shadow-lg border-2 m-4 bg-white z-[100]
+                            md:top-1 md:left-16 xl:top-48 xl:left-[35rem]"
             >
                 <div className="flex flex-col gap-6">
                     <div className="relative">
@@ -72,7 +72,7 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
                     
   
 
-                <NavLink onClick={clearCart} className="bg-[#D87D4A] text-white text-center rounded-sm py-4 my-6 " to='/'>BACK TO HOME</NavLink>
+                <NavLink onClick={clearCart} className="bg-[#D87D4A] text-white text-center rounded-sm py-4 my-6 hover:scale-110 hover:opacity-50" to='/'>BACK TO HOME</NavLink>
 
             </div>
             <Backdrop onClick={() => {}}/>

@@ -14,10 +14,10 @@ export function Footer() {
                         </div>
 
                         <div className="flex flex-col gap-5 md:flex-row ">
-                            <NavLink to="/">HOME</NavLink>
-                            <NavLink to="/headphones">HEADPHONES</NavLink>
-                            <NavLink to="/speakers">SPEAKERS</NavLink>
-                            <NavLink to="/earphones">EARPHONES</NavLink>
+                            <NavLink className="hover:text-[#d87d4a]" to="/">HOME</NavLink>
+                            <NavLink className="hover:text-[#d87d4a]" to="/headphones">HEADPHONES</NavLink>
+                            <NavLink className="hover:text-[#d87d4a]" to="/speakers">SPEAKERS</NavLink>
+                            <NavLink className="hover:text-[#d87d4a]" to="/earphones">EARPHONES</NavLink>
                         </div>
                     </div>
  

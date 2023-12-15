@@ -56,10 +56,10 @@ export function CartModal() {
                     <h5 className="text-sm font-bold">{item.name}</h5>
                     <p className="opacity-60">$ {item.price?.toLocaleString()}</p>
                 </div>
-                <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4 pr-[4.6rem]">
-                    <button onClick={() => handleDecreaseQuantity(itemSlug)}>-</button> 
-                    <p>{item.quantity}</p>
-                    <button onClick={() => handleIncreaseQuantity(itemSlug)} >+</button>
+                <div className="flex bg-[#F1F1F1] gap-4 py-3 px-4  justify-between">
+                    <button className="hover:scale-150 hover:font-bold" onClick={() => handleDecreaseQuantity(itemSlug)}>-</button> 
+                    <p className="select-none">{item.quantity}</p>
+                    <button className="hover:scale-150 hover:font-bold" onClick={() => handleIncreaseQuantity(itemSlug)} >+</button>
                 </div>
             </div>
         )

@@ -60,7 +60,7 @@ export function Checkout() {
                 <button 
                     type="button" 
                     onClick={() => navigate(-1)} 
-                    className="mb-8 opacity-60 capitalize mx-14 xl:text-2xl xl:mb-0">Go back
+                    className="mb-4 opacity-60 capitalize mx-14 xl:text-2xl xl:mb-0 md:mt-8 font-bold cursor-pointer hover:text-[#d87d4a]">Go back
                 </button>
 
                 <div className="m-4 xl:m-16 xl:bg-white xl:mr-[32rem] xl:py-8">                
@@ -185,7 +185,8 @@ export function Checkout() {
 
                                 <button 
                                     type="submit" 
-                                    className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold xl:mb-8"
+                                    className="uppercase text-white bg-[#D87D4A] tracking-wider py-3 px-8 rounded-lg mb-32 font-bold xl:mb-8
+                                                cursor-pointer hover:opacity-60 hover:scale-110"
                                 >
                                         Continue&pay
                                 </button>

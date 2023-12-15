@@ -36,11 +36,11 @@ export function Header( )  {
 
     const desktopWidth = windowWidth >= 1280 ? '' : <div onClick={handleClick}><HamburgerIcon/></div> 
     
-    const desktopNavbar = windowWidth >=1280 ? <ul className="flex gap-8 uppercase tracking-wider">
-                                                    <NavLink to="/">Home</NavLink>
-                                                    <NavLink to="/headphones">Headphones</NavLink>
-                                                    <NavLink to="/speakers">Speakers</NavLink>
-                                                    <NavLink to="/earphones">earphones</NavLink>
+    const desktopNavbar = windowWidth >=1280 ? <ul className="flex gap-8 uppercase tracking-wider ">
+                                                    <NavLink className="hover:text-[#d87d4a]" to="/">Home</NavLink>
+                                                    <NavLink className="hover:text-[#d87d4a]" to="/headphones">Headphones</NavLink>
+                                                    <NavLink className="hover:text-[#d87d4a]" to="/speakers">Speakers</NavLink>
+                                                    <NavLink className="hover:text-[#d87d4a]" to="/earphones">earphones</NavLink>
                                                 </ul> : ''
 
     return windowWidth && (
@@ -74,7 +74,7 @@ export function Header( )  {
                 {desktopNavbar}
 
                 <div onClick={handleModalDisplay} className="m-0 p-0 ">  
-                    <div className="relative z-10"><CartIcon/></div>  
+                    <div className="relative z-10 cursor-pointer"><CartIcon/></div>  
                     <div className="absolute bg-[#D87D4A] rounded-full w-6 flex justify-center items-center bottom-3 z-0 right-5 xl:right-32">
                         {cartModalItems.length}
                     </div> 
