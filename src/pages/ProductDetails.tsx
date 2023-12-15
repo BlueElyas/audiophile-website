@@ -32,6 +32,7 @@ export function ProductDetails() {
         return
     }
 
+    // For features section to create 2 paragraphs
     const description = selectedItem.features;
     const middleIndex = Math.ceil(description.length / 2);
     const splitIndex = description.indexOf('. ', middleIndex) + 1; // +1 to include the full stop in the first half
@@ -102,13 +103,13 @@ export function ProductDetails() {
                     </div>
                 </div>
                 
-                <div className="grid gap-6 mt-8 md:grid-cols-5">
+                <div className="grid gap-6 mt-8 md:flex ">
                     <div className="md:col-span-2 md:flex md:flex-col md:justify-between">
                         <img src={useWindowSize(selectedItem.gallery.first)} alt="" className="rounded-lg mb-4 md:mb-12" />
                         <img src={useWindowSize(selectedItem.gallery.second)} alt="" className="rounded-lg" />
                     </div>
-                    <div className="md:col-span-3 md:self-stretch">
-                        <img src={useWindowSize(selectedItem.gallery.third)} alt="" className="rounded-lg" />
+                    <div className="md:col-span-3">
+                        <img src={useWindowSize(selectedItem.gallery.third)} alt="" className="rounded-lg md:h-full" />
                     </div>
                 </div>
 
