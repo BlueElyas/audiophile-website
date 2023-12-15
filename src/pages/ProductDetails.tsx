@@ -88,7 +88,7 @@ export function ProductDetails() {
                         </div>
 
                         <div className="md:flex md:justify-between md:mr-40 md:mb-16 xl:flex-col xl:justify-normal ">
-                            <h5 className="font-bold text-2xl mb-6 md:text-3xl">IN THE BOX</h5>
+                            <h5 className="mt-8 font-bold text-2xl mb-6 md:text-3xl xl:mt-0">IN THE BOX</h5>
                             <div>
                                 {selectedItem.includes.map((item: { 
                                     quantity: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; item: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined;
