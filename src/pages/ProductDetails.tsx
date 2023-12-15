@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useLayoutEffect } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
@@ -39,9 +39,7 @@ export function ProductDetails() {
     const firstHalf = description.substring(0, splitIndex);
     const secondHalf = description.substring(splitIndex);
 
-    useLayoutEffect(() => {
-        window.scrollTo(0, 0)
-    });
+
 
 
     return (
@@ -105,7 +103,7 @@ export function ProductDetails() {
                 </div>
                 
                 <div className="grid gap-6 mt-8 md:grid-cols-5">
-                    <div className="md:col-span-2">
+                    <div className="md:col-span-2 md:flex md:flex-col md:justify-between">
                         <img src={useWindowSize(selectedItem.gallery.first)} alt="" className="rounded-lg mb-4 md:mb-12" />
                         <img src={useWindowSize(selectedItem.gallery.second)} alt="" className="rounded-lg" />
                     </div>

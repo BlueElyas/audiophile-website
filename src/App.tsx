@@ -8,6 +8,8 @@ import { ProductDetails } from "./pages/ProductDetails"
 import { ShoppingCartProvider } from "./context/CartContext"
 import { Checkout } from "./pages/Checkout"
 
+
+
 function App() {
   return (
     <>
