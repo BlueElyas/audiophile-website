@@ -78,15 +78,15 @@ export function ProductDetails() {
                         </div>
                     </div>
 
-                    <div className="xl:grid xl:grid-cols-2 xl:gap-16 xl:mt-16">
-                        <div className="md:mb-16 xl:text-lg">
+                    <div className="xl:flex xl:justify-center xl:items-start xl:gap-16 xl:mt-16">
+                        <div className="md:mb-16 xl:text-lg  xl:flex-1 ">
                             <h5 className="font-bold text-2xl mb-4 xl:text-4xl xl:mb-7">FEATURES</h5>
                             <p className="opacity-70">{firstHalf}</p>
                             <br />
                             <p className="opacity-70">{secondHalf}</p>
                         </div>
 
-                        <div className="md:flex md:justify-between md:mr-40 md:mb-16 xl:flex-col xl:justify-normal mt-6" >
+                        <div className="md:flex md:justify-between md:mr-40 md:mb-16 xl:flex-col xl:justify-normal ">
                             <h5 className="font-bold text-2xl mb-6 md:text-3xl">IN THE BOX</h5>
                             <div>
                                 {selectedItem.includes.map((item: { 
