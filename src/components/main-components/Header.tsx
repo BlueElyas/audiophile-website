@@ -24,8 +24,6 @@ export function Header( )  {
     const location = useLocation()
     console.log(location)
 
-    const headerOutOfHomePage = location.pathname === '/' ?  'backgroundGray' : 'black' 
-
     const windowSize = useSpecificWindowValues()
     const windowWidth = windowSize.width
 
@@ -45,7 +43,7 @@ export function Header( )  {
     return windowWidth && (
         <>
             <div 
-                className={`bg-${headerOutOfHomePage} text-white flex justify-between px-4 py-7 items-center z-50 relative 
+                className={`${location.pathname === '/' ?  'bg-[#1A1A1A]' : 'bg-black' } text-white flex justify-between px-4 py-7 items-center z-50 relative 
                             md:px-10 xl:px-36 `}
             >
 
