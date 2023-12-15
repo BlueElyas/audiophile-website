@@ -75,7 +75,7 @@ export function CheckoutModal( { totalPrice, checkoutProducts, clearCart } : Che
                 <NavLink onClick={clearCart} className="bg-[#D87D4A] text-white text-center rounded-sm py-4 my-6 " to='/'>BACK TO HOME</NavLink>
 
             </div>
-            <Backdrop/>
+            <Backdrop onClick={() => {}}/>
         </>
     )
 }

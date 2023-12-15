@@ -11,7 +11,7 @@ export function Hero() {
 
     return (
         <div className=" bg-[#191919] text-white text-center flex flex-col justify-start items-center 
-                        md:h-[700px] lg:mb-64 xl:mb-16"
+                        md:h-[700px] lg:mb-64 xl:mb-8"
         >
             <div className="-translate-y-20">
                 <img 

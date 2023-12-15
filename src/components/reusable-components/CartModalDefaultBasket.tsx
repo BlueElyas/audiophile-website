@@ -21,7 +21,7 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
 
     return(
         <>
-            <Backdrop />
+            <Backdrop onClick={() => {}} />
             <div 
                 className="fixed z-50 top-20 left-4 bg-white p-8 shadow-lg] 
                 rounded-lg w-[92%] flex flex-col gap-8 border-2
@@ -36,6 +36,7 @@ export function CartModalDefaultBasket ( { children, lengthOfCart, totalPrice, c
                 </div>
 
                 {children}
+                
                 <div className="xl:text-2xl">
                     <div className="flex justify-between mb-6">
                         <h5>TOTAL</h5>

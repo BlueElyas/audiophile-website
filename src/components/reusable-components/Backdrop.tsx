@@ -1,3 +1,11 @@
-export function Backdrop() {
-    return <div className="fixed w-screen h-screen bg-gray-500 top-0 bottom-0 left-0 right-0 opacity-60"></div>
+type BackdropProps = {
+    onClick: () => void
 }
+
+export const Backdrop = ( { onClick } : BackdropProps ) => (
+    <div
+    className="fixed inset-0 bg-black bg-opacity-40 z-40"
+    onClick={onClick}>
+
+    </div>
+)
