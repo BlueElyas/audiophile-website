@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { SeeProductButton } from "../components/reusable-components/SeeProductButton";
 import { fetchProductDetails } from "../utilities/fetchProductDetails";
@@ -8,11 +8,9 @@ import { useWindowSize } from "../hooks/useWindowSize";
 import { mappedProductNavLinks } from "../components/reusable-components/ProductNavLinks";
 
 export function ProductDetails() {
+    const [localQuantity, setLocalQuantity] = useState(1)
     // This gets the functions from the cart context
     const { 
-        getItemQuantity,
-        increaseCartQuantity,
-        decreaseCartQuantity,
         addToCart
     } = useShoppingCart()
 
@@ -26,7 +24,6 @@ export function ProductDetails() {
     // For responsive design
     
     
-    const quantity = getItemQuantity(slug!)
 
     if(!selectedItem) {
         return
@@ -41,6 +38,18 @@ export function ProductDetails() {
     const secondHalf = description.substring(splitIndex);
 
 
+    const handleDecrease = () => {
+        setLocalQuantity(p => p > 1? p - 1 : 1)
+    }
+
+    const handleIncrease =() => {
+        setLocalQuantity(p => p + 1)
+    }
+
+    const addCart = () => {
+        addToCart(selectedItem.slug, localQuantity)
+        setLocalQuantity(1)
+    }
 
 
     return (
@@ -66,13 +75,13 @@ export function ProductDetails() {
                             <h4 className="tracking-wider font-bold xl:text-2xl py-4">$ {selectedItem.price.toLocaleString()}</h4>
                             <div className="flex items-center justify-center gap-2 md:gap-8">
                                 <div className="flex bg-[#F1F1F1] gap-8 py-4 px-6">
-                                    <button className="hover:scale-150 hover:font-bold" onClick={() => decreaseCartQuantity(slug!) }>-</button>
-                                    <p className="select-none">{quantity >= 0 ? quantity : 1}</p> 
-                                    <button className="hover:scale-150 hover:font-bold" onClick={() => increaseCartQuantity(slug!) }>+</button>
+                                    <button className="hover:scale-150 hover:font-bold" onClick={handleDecrease }>-</button>
+                                    <p className="select-none">{localQuantity}</p> 
+                                    <button className="hover:scale-150 hover:font-bold" onClick={handleIncrease }>+</button>
                                 </div>
                                 <div className="flex-1">
                                     <button 
-                                        onClick={addToCart}
+                                        onClick={addCart}
                                         className="py-4 px-6 bg-[#D87D4A] text-white xl:px-10 md:py-4 hover:scale-110 hover:opacity-60">
                                             ADD TO CART
                                     </button>

@@ -14,7 +14,7 @@ type ShoppingCartContext = {
     increaseCartQuantity: (slug: string) => void
     decreaseCartQuantity: (slug: string) => void
     removeFromCart: (slug: string) => void
-    addToCart: () => void
+    addToCart: (productSlug : string, quantity : number) => void
     cartModalItems: CartItem[]
     clearCart: () => void
     setCartModalItems: Function
@@ -55,20 +55,20 @@ export function ShoppingCartProvider( { children } : ShoppingCartProviderProps )
         }
     },[cartModalItems])
 
-    function addToCart() {
+    function addToCart(productSlug : string, quantity : number) {
         setCartModalItems((prevModalItems) => {
-            const updatedModalItems = [...prevModalItems]
+            const productIndex = prevModalItems.findIndex(item => item.slug === productSlug)
 
-            cartItems.forEach(cartItem => {
-                const existingModalItem = updatedModalItems.find(item => item.slug === cartItem.slug)
-                if (existingModalItem) {
-                    existingModalItem.quantity += cartItem.quantity
-                } else {
-                    updatedModalItems.push({ ...cartItem })
+            if(productIndex >= 0) {
+                const updatedModalItems = [...prevModalItems]
+                updatedModalItems[productIndex] = {
+                    ...updatedModalItems[productIndex],
+                    quantity: updatedModalItems[productIndex].quantity + quantity
                 }
-            })
-
-            return updatedModalItems
+                return updatedModalItems
+            }else {
+                return [...prevModalItems, {slug: productSlug, quantity} ]
+            }
         })
 
         // Reset the quantity in cartItems to 0
